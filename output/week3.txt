@@ -1,0 +1,10 @@
+[@I1@]	Emmy /Green/
+[@I2@]	Jim /Green/
+[@I3@]	Anna /Kim/
+[@I4@]	Peter /Green/
+[@I5@]	Bonnie /Brown/
+[@I6@]	Debby /Wood/
+[@I7@]	Grace /Green/
+[@F1@]	Jim /Green/	+	Anna /Kim/
+[@F2@]	Peter /Green/	+	Bonnie /Brown/
+[@F3@]	Peter /Green/	+	Debby /Wood/

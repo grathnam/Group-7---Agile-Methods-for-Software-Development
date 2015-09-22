@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
     	if (args.length == 0) {
     		args = new String[1];
-    		args[0] = "family2.ged";
+    		args[0] = "test.ged";
     	}    		
         Tree tree = new Tree();
         GEDParser gedParser = new GEDParser(tree);

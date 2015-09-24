@@ -23,11 +23,9 @@ public class GEDParser {
             String[] record = nextRecord(iter);
             while (record != null) {
                 if (isPerson(record)) {
-                    Person p = tree.getPerson(record[1]);
-                    record = parsePerson(p, iter);
+                    record = parsePerson(tree.getPerson(record[1]), iter);
                 } else if (isFamily(record)) {
-                    Family f = tree.getFamily(record[1]);
-                    record = parseFamily(f, iter);
+                    record = parseFamily(tree.getFamily(record[1]), iter);
                 } else { // skip an invalid record
                     record = nextRecord(iter);
                 }

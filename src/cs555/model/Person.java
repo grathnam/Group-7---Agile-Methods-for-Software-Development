@@ -1,5 +1,7 @@
 package cs555.model;
 
+import cs555.util.AgeUtils;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -76,6 +78,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "["+id+"]\t"+name;
+        return "["+id+"] ("+ birth +")\t"+name+" ("+ AgeUtils.getAge(birth)+")";
     }
 }

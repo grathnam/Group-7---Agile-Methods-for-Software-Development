@@ -11,12 +11,14 @@ public class Family {
     private String id;
     private Person husband;
     private Person wife;
+    private List<Person> members;
     private List<Person> child;
     private LocalDate marr;
     private LocalDate div;
 
     public Family(String id) {
         this.child = new ArrayList<>();
+        this.members = new ArrayList<>();
         this.id = id;
     }
 
@@ -25,7 +27,10 @@ public class Family {
     }
 
     public void setHusband(Person husband) {
+        if (this.husband != null)
+            members.remove(this.husband);
         this.husband = husband;
+        members.add(husband);
     }
 
     public Person getWife() {
@@ -33,7 +38,10 @@ public class Family {
     }
 
     public void setWife(Person wife) {
+        if (this.wife != null)
+            members.remove(this.wife);
         this.wife = wife;
+        members.add(wife);
     }
 
     public LocalDate getMarr() {
@@ -57,7 +65,20 @@ public class Family {
     }
 
     public void addChild(Person person) {
+        members.add(person);
         child.add(person);
+    }
+
+    public void setChild(List<Person> child) {
+        this.child = child;
+    }
+
+    public List<Person> getChild() {
+        return child;
+    }
+
+    public List<Person> getMembers() {
+        return members;
     }
 
     @Override

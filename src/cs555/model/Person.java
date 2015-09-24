@@ -78,6 +78,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "["+id+"] ("+ birth +")\t"+name+" ("+ AgeUtils.getAge(birth)+")";
+        return "["+id+"] ("+ birth +") "+name+" ("+ AgeUtils.getAge(birth)+")";
     }
 }

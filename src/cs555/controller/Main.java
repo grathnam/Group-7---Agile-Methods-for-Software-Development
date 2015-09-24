@@ -11,7 +11,7 @@ public class Main {
     	if (args.length == 0) {
             System.out.println("You should provide an argument for which file you want to read. Defaulting to test.ged");
             args = new String[1];
-    		args[0] = "test.ged";
+    		args[0] = "input/test.ged";
     	}
 
         Tree tree = new Tree();
@@ -21,9 +21,12 @@ public class Main {
         TreeUtils treeUtils = new TreeUtils(tree);
         treeUtils.printPeople();
         treeUtils.printFamilies();
-//        treeUtils.printIncorrectGenderRoles();
-//        treeUtils.orderSiblingsByAge();
-//        treeUtils.printFamiliesWithChildren();
+
+        treeUtils.printIncorrectGenderRoles();
+
+        treeUtils.printFamiliesWithChildren();
+        treeUtils.orderSiblingsByAge();
+        treeUtils.printFamiliesWithChildren();
 
     }
 }

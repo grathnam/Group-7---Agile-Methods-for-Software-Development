@@ -76,6 +76,8 @@ public class Person {
         fams.add(family);
     }
 
+    //US27	Include individual ages
+    //Include person's current age when listing individuals
     @Override
     public String toString() {
         return "["+id+"] ("+ birth +") "+name+" ("+ AgeUtils.getAge(birth)+")";

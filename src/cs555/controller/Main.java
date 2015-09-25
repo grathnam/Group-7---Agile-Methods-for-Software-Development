@@ -22,11 +22,19 @@ public class Main {
         treeUtils.printPeople();
         treeUtils.printFamilies();
 
+        //Sprint 1
+        treeUtils.listSiblingsOrdedByAge();
         treeUtils.printIncorrectGenderRoles();
 
-        treeUtils.printFamiliesWithChildren();
-        treeUtils.orderSiblingsByAge();
-        treeUtils.printFamiliesWithChildren();
+        //Sprint 2
+        treeUtils.listNonUniqueNamesAndBirthdays();
+        treeUtils.listDeceased();
 
+        //Sprint 3
+        treeUtils.listLivingSingles();
+        treeUtils.listNonUniqueNamesInFamily();
+
+        //Sprint 4
+        treeUtils.listMultipleBirths();
     }
 }

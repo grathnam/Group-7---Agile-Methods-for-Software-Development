@@ -19,8 +19,10 @@ public class TreeUtils {
     //List siblings in families by age
     public void listSiblingsOrdedByAge() {
         printHeader("Ordering Siblings by Age");
-        tree.getFamilies().stream().forEach(f -> f.setChild(f.getChild().stream().sorted((p1, p2) -> p1.getBirth().compareTo(p2.getBirth())).collect(Collectors.toList())));
-        printFamiliesWithChildren();
+        tree.getFamilies().stream().collect(Collectors.toMap(f->f, f -> f.getChild().stream().sorted((p1, p2) -> p1.getBirth().compareTo(p2.getBirth())).collect(Collectors.toList()))).entrySet().stream().filter(e->!e.getValue().isEmpty()).forEach(e->{
+            System.out.println(e.getKey());
+            e.getValue().forEach(p->System.out.println(" >\t"+p));
+        });
     }
 
     //US21	Correct gender for role

@@ -1,11 +1,12 @@
 package cs555.util;
 
-import cs555.model.Tree;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+
+import cs555.model.Family;
+import cs555.model.Person;
+import cs555.model.Tree;
 
 public class TreeUtils {
 	private final Tree tree;
@@ -192,4 +193,37 @@ public class TreeUtils {
 		tree.getFamilies().stream().filter(f -> f.getChild().size() >= 15)
 				.forEach(System.out::println);
 	}
-}
+	
+	/** US09 Birth before death of parents */
+	public void listBirthAfterParentsDeath()
+	{
+		printHeader("Printing the People born after death of parents");
+		tree.getFamilies().forEach(f -> f.getChild().stream()
+				.filter(c -> AgeUtils.getMonthGap(
+						c.getBirth(), f.getHusband().getDeath()) > 9 
+						|| AgeUtils.getMonthGap(c.getBirth(), f.getWife().getDeath()) > 0).forEach(System.out::println));
+	
+	 
+
+	}
+	
+	/** US11 No Bigamy */
+	public void ListOrphans()
+	{
+		printHeader("Printing the orphans");
+		for (Person p : tree.getPeople()) {
+			if (AgeUtils.getAge(p.getBirth())<18)
+		    {
+		    	for (Family f : p.getFamc())
+		    	{
+		    		if((f.getHusband().getDeath() !=null)&&(f.getWife().getDeath()!=null))
+		    		System.out.println(p);
+		    	}
+		    }
+		   
+		}
+	}
+	
+	
+	}
+

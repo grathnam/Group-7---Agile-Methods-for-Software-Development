@@ -19,6 +19,7 @@ public class Main {
         Arrays.stream(args).filter(s -> s.contains(".ged")).forEach(gedParser::readGED);
 
         TreeUtils treeUtils = new TreeUtils(tree);
+        
         treeUtils.printPeople();
         treeUtils.printFamilies();
 
@@ -27,6 +28,8 @@ public class Main {
         treeUtils.printIncorrectGenderRoles();
         treeUtils.listMarriageNotAfter14();
         treeUtils.listFamilyNotFewerThan15Siblings();
+        treeUtils.ListOrphans();
+        treeUtils.listBirthAfterParentsDeath();
 
         //Sprint 2
         treeUtils.listNonUniqueNamesAndBirthdays();
@@ -34,8 +37,7 @@ public class Main {
 
         //Sprint 3
         treeUtils.listLivingSingles();
-        treeUtils.listNonUniqueNamesInFamily();
-
+       treeUtils.listNonUniqueNamesInFamily();
         //Sprint 4
         treeUtils.listMultipleBirths();
     }

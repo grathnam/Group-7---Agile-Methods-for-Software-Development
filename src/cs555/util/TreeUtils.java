@@ -16,6 +16,26 @@ public class TreeUtils {
 
 	// Only used streams for a challenge :) Probably not the clearest way for
 	// some of them.
+// US 01
+public void printbdeexceedcurrentdate()
+    {   printHeader("Birth Date exceeding current date");
+    	tree.getPeople().stream().filter(p->p.getBirth().isAfter(LocalDate.now())).forEach(System.out::println);	
+    	tree.getPeople().stream().filter(p->p.getBirth().isAfter(LocalDate.now())).forEach(p -> System.out.println(p.getName() + " has an invalid birthday of: " + p.getBirth()));
+    	printHeader("Death Date exceeding current date");
+    	 tree.getPeople().stream().filter(p->p.getDeath() != null && p.getDeath().isAfter(LocalDate.now())).forEach(System.out::println);	
+    	 tree.getPeople().stream().filter(p->p.getDeath() != null && p.getDeath().isAfter(LocalDate.now())).forEach(p -> System.out.println(p.getName() + " has an invalid death day of: " + p.getDeath())); 
+    	
+    	
+    	}
+ // US 05 Marriage should occur before death of either of spouse
+    public void printinvalidmaranddivorcedate() // prints marriage date and divorce exceeding current date
+{  printHeader("Marriage Date exceeding current date");
+    	tree.getFamilies().stream().filter(f -> f.getDiv()!=null&& f.getDiv().isAfter(LocalDate.now())).forEach(f->System.out.println("Family " + f.getId() + " has an invalid divorse date of: " + f.getDiv()));
+    	printHeader("Divorce Date exceeding current date");
+     tree.getFamilies().stream().filter(f -> f.getMarr()!=null &&f.getMarr().isAfter(LocalDate.now())).forEach(f->System.out.println("Family " + f.getId() + " has an invalid marriage date of: " + f.getMarr()));
+     
+    } 
+
 
 	// US28 Order siblings by age
 	// List siblings in families by age

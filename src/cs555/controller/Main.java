@@ -25,6 +25,8 @@ public class Main {
         //Sprint 1
         treeUtils.listSiblingsOrdedByAge();
         treeUtils.printIncorrectGenderRoles();
+        treeUtils.listMarriageNotAfter14();
+        treeUtils.listFamilyNotFewerThan15Siblings();
 
         //Sprint 2
         treeUtils.listNonUniqueNamesAndBirthdays();

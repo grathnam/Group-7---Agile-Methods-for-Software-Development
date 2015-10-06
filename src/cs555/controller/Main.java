@@ -24,6 +24,9 @@ public class Main {
         treeUtils.printFamilies();
 
         //Sprint 1
+        treeUtils.printbdeexceedcurrentdate(); // US 01.1
+       treeUtils.printinvalidmaranddivorcedate(); // US 01.2
+        treeUtils.printinvalidmaranddivorcedate(); //US 05
         treeUtils.listSiblingsOrdedByAge();
         treeUtils.printIncorrectGenderRoles();
         treeUtils.listMarriageNotAfter14();

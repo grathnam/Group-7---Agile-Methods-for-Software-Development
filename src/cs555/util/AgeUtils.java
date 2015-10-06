@@ -11,4 +11,8 @@ public class AgeUtils {
 	public static long getYearGap(LocalDate date1, LocalDate date2) {
 		return ChronoUnit.YEARS.between(date1, date2);
 	}
+	
+	public static long getMonthGap(LocalDate date1, LocalDate date2) {
+		return ChronoUnit.MONTHS.between(date1, date2);
+	}
 }

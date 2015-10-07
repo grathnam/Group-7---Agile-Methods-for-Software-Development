@@ -24,24 +24,24 @@ public class Main {
         treeUtils.printFamilies();
 
         //Sprint 1
-        treeUtils.printbdeexceedcurrentdate(); // US 01.1
-        treeUtils.printinvalidmaranddivorcedate(); // US 01.2
-        treeUtils.printinvalidmaranddivorcedate(); //US 05
-        treeUtils.listSiblingsOrdedByAge();
-        treeUtils.printIncorrectGenderRoles();
-        treeUtils.listMarriageNotAfter14();
-        treeUtils.listFamilyNotFewerThan15Siblings();
-        treeUtils.ListOrphans();
-        treeUtils.listBirthAfterParentsDeath();
+        treeUtils.printbdeexceedcurrentdate(); // US 01
+        treeUtils.printinvalidmaranddivorcedate(); // US 05
+        treeUtils.listSiblingsOrdedByAge(); //US 28
+        treeUtils.printIncorrectGenderRoles(); // US 21
+        treeUtils.listMarriageNotAfter14(); // US 10
+        treeUtils.listFamilyNotFewerThan15Siblings(); // US 15
+        treeUtils.ListOrphans(); //US 33
+        treeUtils.listBirthAfterParentsDeath(); // US 09
 
         //Sprint 2
-        treeUtils.listNonUniqueNamesAndBirthdays();
-        treeUtils.listDeceased();
+//        treeUtils.listNonUniqueNamesAndBirthdays();
+//        treeUtils.listDeceased();
 
         //Sprint 3
-        treeUtils.listLivingSingles();
-        treeUtils.listNonUniqueNamesInFamily();
+//        treeUtils.listLivingSingles();
+//        treeUtils.listNonUniqueNamesInFamily();
+        
         //Sprint 4
-        treeUtils.listMultipleBirths();
+//        treeUtils.listMultipleBirths();
     }
 }

@@ -64,7 +64,6 @@ public class TreeUtils {
     	 
     }//end of US 02
 
-
     // US28 Order siblings by age
     // List siblings in families by age
     public void listSiblingsOrdedByAge() {

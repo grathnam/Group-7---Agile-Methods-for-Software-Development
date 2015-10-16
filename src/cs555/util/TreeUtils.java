@@ -63,6 +63,32 @@ public class TreeUtils {
     	 } //end of for outer for loop
     	 
     }//end of US 02
+    
+    //Sprint 2 //US 06 // prints divorce date is after death date
+   public void printdivafterdeathdate() //US 06
+   {
+   	printHeader(" Sprint 2: US 06: Divorce date that is after the death date of a person ");
+  	
+  	 for( Person p : tree.getPeople()) 
+  	 { //beginning of outer for loop
+  	 for(Family f:p.getFams())
+  	 { //beginning of inner for loop
+  	   if(f.getDiv()!=null && p.getDeath()!=null)
+  	   { // beginning of outer if stmt
+  		   if(f.getDiv().isAfter(p.getDeath()))
+  	     { //beginning of inner if stmt
+  	        
+  	        System.out.println(" "  +p.getName()+ " has  divorce date: " +f.getDiv() + "  and death date: " +p.getDeath() );
+  	        
+  	     
+  	     } //end of outer if stmt
+  	   
+  	   } // end of outer if stmt
+  	   
+  	 } // end of inner for loop
+  	 } //end of outer for loop 
+   } // end of US 06
+    
 
     // US28 Order siblings by age
     // List siblings in families by age

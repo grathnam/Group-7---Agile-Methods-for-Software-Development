@@ -38,31 +38,7 @@ public class TreeUtils {
 
     }
     
-    //Sprint 2  //US 02
-   public void printmardatebefbirdate() // US 02 - prints marraige date that is before birth of a person
-    {     printHeader(" Sprint 2:  US 02 ");
-	     printHeader(" Marraige dates that is  before the birth of a person ");
-    	
-    	 for( Person p : tree.getPeople()) 
-    	 { //beginning of outer for loop
-    	 for(Family f:p.getFams())
-    	 { //beginning of inner for loop
-    	   if(f.getMarr()!=null && p.getBirth()!=null)
-    	   { // beginning of outer if stmt
-    		   if(f.getMarr().isBefore(p.getBirth()))
-    	     { //beginning of inner if stmt
-    	        
-    	        System.out.println("  " +p.getName()+" has marraige date : " +f.getMarr()+  " and " + " Birth date:  " +p.getBirth() );
-    	        
-    	     
-    	     } //end of outer if stmt
-    	   
-    	   } // end of outer if stmt
-    	   
-    	 } // end of inner for loop
-    	 } //end of for outer for loop
-    	 
-    }//end of US 02
+   
 
 
     // US28 Order siblings by age

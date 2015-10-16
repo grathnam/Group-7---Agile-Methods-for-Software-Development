@@ -33,9 +33,10 @@ public class Main {
         treeUtils.ListOrphans(); //US 33
         treeUtils.listBirthAfterParentsDeath(); // US 09
 
-        //Sprint 2
+        Sprint 2
 //        treeUtils.listNonUniqueNamesAndBirthdays();
 //        treeUtils.listDeceased();
+          treeUtils.printmardatebefbirdate(); // US 02
 
         //Sprint 3
 //        treeUtils.listLivingSingles();

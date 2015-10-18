@@ -37,7 +37,7 @@ public class Main {
 //        treeUtils.listNonUniqueNamesAndBirthdays();
 //        treeUtils.listDeceased();
           treeUtils.printmardatebefbirdate(); // US 02
-
+          treeUtils.printdivafterdeathdate(); // US 06
         //Sprint 3
 //        treeUtils.listLivingSingles();
 //        treeUtils.listNonUniqueNamesInFamily();

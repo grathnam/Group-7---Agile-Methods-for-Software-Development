@@ -37,7 +37,58 @@ public class TreeUtils {
         tree.getFamilies().stream().filter(f -> f.getMarr() != null && f.getMarr().isAfter(LocalDate.now())).forEach(f -> System.out.println("Family " + f.getId() + " has an invalid marriage date of: " + f.getMarr()));
 
     }
-
+    
+    //Sprint 2  //US 02
+   public void printmardatebefbirdate() // US 02 - prints marraige date that is before birth of a person
+    {     printHeader(" Sprint 2:  US 02 ");
+	     printHeader(" Marraige dates that is  before the birth of a person ");
+    	
+    	 for( Person p : tree.getPeople()) 
+    	 { //beginning of outer for loop
+    	 for(Family f:p.getFams())
+    	 { //beginning of inner for loop
+    	   if(f.getMarr()!=null && p.getBirth()!=null)
+    	   { // beginning of outer if stmt
+    		   if(f.getMarr().isBefore(p.getBirth()))
+    	     { //beginning of inner if stmt
+    	        
+    	        System.out.println("  " +p.getName()+" has marraige date : " +f.getMarr()+  " and " + " Birth date:  " +p.getBirth() );
+    	        
+    	     
+    	     } //end of outer if stmt
+    	   
+    	   } // end of outer if stmt
+    	   
+    	 } // end of inner for loop
+    	 } //end of for outer for loop
+    	 
+    }//end of US 02
+    
+    //Sprint 2 //US 06 // prints divorce date is after death date
+   public void printdivafterdeathdate() //US 06
+   {
+   	printHeader(" Sprint 2: US 06: Divorce date that is after the death date of a person ");
+  	
+  	 for( Person p : tree.getPeople()) 
+  	 { //beginning of outer for loop
+  	 for(Family f:p.getFams())
+  	 { //beginning of inner for loop
+  	   if(f.getDiv()!=null && p.getDeath()!=null)
+  	   { // beginning of outer if stmt
+  		   if(f.getDiv().isAfter(p.getDeath()))
+  	     { //beginning of inner if stmt
+  	        
+  	        System.out.println(" "  +p.getName()+ " has  divorce date: " +f.getDiv() + "  and death date: " +p.getDeath() );
+  	        
+  	     
+  	     } //end of outer if stmt
+  	   
+  	   } // end of outer if stmt
+  	   
+  	 } // end of inner for loop
+  	 } //end of outer for loop 
+   } // end of US 06
+    
 
     // US28 Order siblings by age
     // List siblings in families by age

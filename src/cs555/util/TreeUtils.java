@@ -45,31 +45,54 @@ public class TreeUtils {
 								+ p.getDeath()));
 
 	}
+	
+	 public void printmardivdateexcurdate() //US 01.2
+    {
+    	printHeader("Divorce date exceeding current date");
+    	
+		tree.getFamilies()
+				.stream()
+				.filter(f -> f.getDiv() != null
+						&& f.getDiv().isAfter(LocalDate.now()))
+				.forEach(f -> System.out.println(" " + f.getMembers()
+								+ " has an invalid divorse date of: "
+								+ f.getDiv()));
+		printHeader("Marriage Date exceeding current date");
+		tree.getFamilies().stream().filter(f -> f.getMarr() != null
+						&& f.getMarr().isAfter(LocalDate.now())).forEach(
+						f -> System.out.println(" " + f.getMembers()
+								+ " has an invalid marriage date of: "
+								+ f.getMarr()));
+    }
+	
+	
+	
+	
+	
 
 	// US 05 Marriage should occur before death of either of spouse
 	public void printinvalidmaranddivorcedate() // prints marriage date and
 												// divorce exceeding current
 												// date
 	{
-		printHeader("Marriage Date exceeding current date");
-		tree.getFamilies()
-				.stream()
-				.filter(f -> f.getDiv() != null
-						&& f.getDiv().isAfter(LocalDate.now()))
-				.forEach(
-						f -> System.out.println("Family " + f.getId()
-								+ " has an invalid divorse date of: "
-								+ f.getDiv()));
-		printHeader("Divorce Date exceeding current date");
-		tree.getFamilies()
-				.stream()
-				.filter(f -> f.getMarr() != null
-						&& f.getMarr().isAfter(LocalDate.now()))
-				.forEach(
-						f -> System.out.println("Family " + f.getId()
-								+ " has an invalid marriage date of: "
-								+ f.getMarr()));
-
+		printHeader("US 05");
+    	printHeader("Marraige Date exceeding death date");
+        
+          for(Person p: tree.getPeople())
+          {
+          for(Family f:  p.getFams())
+          {  if(f.getMarr()!=null&&p.getDeath()!=null)
+        	  {
+          if(f.getMarr().isAfter(p.getDeath()))
+          {
+            System.out.println("  " + p.getName() + " has  marriage date: " + f.getMarr() +  " and " + " Death date:  "  +p.getDeath() );
+        	  
+            	     
+          }
+          
+          } // end of outer if stmt
+          } //end of outer for stmt
+          } //end of inner for stmt
 	}
 
 	// Sprint 2 //US 02

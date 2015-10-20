@@ -398,5 +398,27 @@ public class TreeUtils {
 																.getName())))
 								.forEach(System.out::println));
 	}
+	//US30 Listing living married
+	public void printLivingMarried() {
+		System.out.println();
+		System.out.println("Printing living married");
+		tree.getFamilies().stream().filter(f->f.getDiv()==null)
+		.map(f->new ArrayList<Person>(Arrays.asList(f.getWife(), f.getHusband())))
+		.flatMap(l->l.stream())
+		.filter(p->p.getDeath()==null && AgeUtils.getAge(p.getBirth())>0)
+		.forEach(System.out::println);
 
+	}
+	//US35 listing recent births
+		public void printRecentBirths() {
+			printHeader("Printing Recent Births (with last 30 days)");
+			tree.getFamilies()
+					.stream()
+					.forEach(
+							f -> f.getChild()
+									.stream()
+									.filter(c -> AgeUtils.getAgeDays(c.getBirth())<=30 && AgeUtils.getAgeDays(c.getBirth())>0)
+									.forEach(System.out::println));
+
+}
 }

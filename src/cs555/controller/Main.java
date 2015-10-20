@@ -37,12 +37,14 @@ public class Main {
 		treeUtils.listBirthAfterParentsDeath(); // US 09
 
 		// Sprint 2
-		// treeUtils.listNonUniqueNamesAndBirthdays();
-		// treeUtils.listDeceased();
+		treeUtils.listNonUniqueNamesAndBirthdays();//US23
+		treeUtils.listDeceased();//US29
 		treeUtils.printmardatebefbirdate(); // US 02
 		treeUtils.printdivafterdeathdate(); // US 06
 		treeUtils.printParentTooOld(); // US 12
 		treeUtils.printMaleLastName();// US 16
+		treeUtils.printLivingMarried();//US30
+		treeUtils.printRecentBirths();//US35
 		
 		// Sprint 3
 		// treeUtils.listLivingSingles();

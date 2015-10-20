@@ -7,6 +7,9 @@ public class AgeUtils {
 	public static long getAge(LocalDate date) {
 		return ChronoUnit.YEARS.between(date, LocalDate.now());
 	}
+	public static long getAgeDays(LocalDate date) {
+		return ChronoUnit.DAYS.between(date, LocalDate.now());
+	}
 
 	public static long getYearGap(LocalDate date1, LocalDate date2) {
 		return ChronoUnit.YEARS.between(date1, date2);

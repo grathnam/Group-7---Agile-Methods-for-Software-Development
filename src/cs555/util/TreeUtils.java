@@ -99,8 +99,7 @@ public class TreeUtils {
 	public void printmardatebefbirdate() // US 02 - prints marraige date that is
 											// before birth of a person
 	{
-		printHeader(" Sprint 2:  US 02 ");
-		printHeader(" Marraige dates that is  before the birth of a person ");
+		printHeader("Sprint 2: US 02: Marraige dates that is  before the birth of a person ");
 
 		for (Person p : tree.getPeople()) { // beginning of outer for loop
 			for (Family f : p.getFams()) { // beginning of inner for loop
@@ -126,7 +125,7 @@ public class TreeUtils {
 	// Sprint 2 //US 06 // prints divorce date is after death date
 	public void printdivafterdeathdate() // US 06
 	{
-		printHeader(" Sprint 2: US 06: Divorce date that is after the death date of a person ");
+		printHeader("Sprint 2: US 06: Divorce date that is after the death date of a person ");
 
 		for (Person p : tree.getPeople()) { // beginning of outer for loop
 			for (Family f : p.getFams()) { // beginning of inner for loop

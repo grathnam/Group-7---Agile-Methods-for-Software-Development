@@ -22,19 +22,19 @@ public class Main {
 
 		TreeUtils treeUtils = new TreeUtils(tree);
 
-		treeUtils.printPeople();
-		treeUtils.printFamilies();
+//		treeUtils.printPeople();
+//		treeUtils.printFamilies();
 
 		// Sprint 1
-		treeUtils.printbdeexceedcurrentdate(); // US 01.1
-		treeUtils.printmardivdateexcurdate(); // US 01.2
-		treeUtils.printinvalidmaranddivorcedate(); // US 05
-		treeUtils.listSiblingsOrdedByAge(); // US 28
-		treeUtils.printIncorrectGenderRoles(); // US 21
-		treeUtils.listMarriageNotAfter14(); // US 10
-		treeUtils.listFamilyNotFewerThan15Siblings(); // US 15
-		treeUtils.ListOrphans(); // US 33
-		treeUtils.listBirthAfterParentsDeath(); // US 09
+//		treeUtils.printbdeexceedcurrentdate(); // US 01.1
+//		treeUtils.printmardivdateexcurdate(); // US 01.2
+//		treeUtils.printinvalidmaranddivorcedate(); // US 05
+//		treeUtils.listSiblingsOrdedByAge(); // US 28
+//		treeUtils.printIncorrectGenderRoles(); // US 21
+//		treeUtils.listMarriageNotAfter14(); // US 10
+//		treeUtils.listFamilyNotFewerThan15Siblings(); // US 15
+//		treeUtils.ListOrphans(); // US 33
+//		treeUtils.listBirthAfterParentsDeath(); // US 09
 
 		// Sprint 2
 		treeUtils.listNonUniqueNamesAndBirthdays();//US23

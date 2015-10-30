@@ -146,6 +146,33 @@ public class TreeUtils {
 			} // end of inner for loop
 		} // end of outer for loop
 	} // end of US 06
+//Sprint 3
+public void printbddateafterdeathdate()
+    {
+    	
+    	printHeader("US 03");
+    	printHeader("Birth Date exceeding Death date");
+        
+          for(Person p: tree.getPeople())
+          
+          
+          {  if(p.getBirth()!=null&&p.getDeath()!=null)
+        	  {
+          if(p.getBirth().isAfter(p.getDeath()))
+          {
+            System.out.println("  " + p.getName() + " has  birth date: " + p.getBirth() +  " and " + " Death date:  "  +p.getDeath() );
+        	  
+            	     
+          }  // end of outer if stmt
+        	  } // end of inner if stmt
+          } //end  for stmt
+          
+         
+    	     
+    	} //end of US O3
+
+
+
 
 	// US28 Order siblings by age
 	// List siblings in families by age

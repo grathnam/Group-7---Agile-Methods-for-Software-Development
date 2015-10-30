@@ -46,10 +46,10 @@ public class Main {
 		treeUtils.printLivingMarried();//US30
 		treeUtils.printRecentBirths();//US35
 		
-		// Sprint 3
+		Sprint 3
 		// treeUtils.listLivingSingles();
 		// treeUtils.listNonUniqueNamesInFamily();
-
+                treeUtils.printbddateafterdeathdate(); // US 03
 		// Sprint 4
 		// treeUtils.listMultipleBirths();
 	}

@@ -50,6 +50,9 @@ public class Main {
 		// treeUtils.listLivingSingles();
 		// treeUtils.listNonUniqueNamesInFamily();
                 treeUtils.printbddateafterdeathdate(); // US 03
+                treeUtils.printdddateandbdate();//US 07.1
+        treeUtils.printchkcurdtlesthan150yrsbddate();//US 07.2
+        
 		// Sprint 4
 		// treeUtils.listMultipleBirths();
 	}

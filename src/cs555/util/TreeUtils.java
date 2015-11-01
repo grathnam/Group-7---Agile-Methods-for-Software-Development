@@ -171,7 +171,64 @@ public void printbddateafterdeathdate()
     	     
     	} //end of US O3
 
+//Sprint 3 //US O7.1 // Death date less than 150 years after birth for dead people
+    public void printdddateandbdate()
+    {
+    	printHeader("Sprint3: US O7.1");
+    	printHeader("Death date less than 150 years after birth for dead people");
+    	for(Person p: tree.getPeople()) // beginning of for stmt
+    	{ 
+    		if(p.getBirth()!=null&&p.getDeath()!=null) { // outer if stmt
+    		if((p.getBirth().isBefore(LocalDate.now())&&(p.getDeath().isBefore(LocalDate.now()) )))
+    				{ if(((p.getDeath().isAfter(p.getBirth()))) && ( p.getDeath().minusYears(150)!=(p.getBirth() ))) //checks if death date is valid 
+    			 { // inner if stmt begins
+    						
+    					 System.out.println(" " +p.getName() + " has  birth date: "+ p.getBirth()  + " and    "  + " Death date:" +p.getDeath()   );
+    		       			
+    			 } // end of inner if stmt
+    			 
+    			} //end middle if
+    			  
+    			 } //end of outer if stmt
+    		
+    				
+    				
+    			 } //end of for stmt
+    			 
+    	
+    		 	} // end of US O7.1
+    		
+    	
+    //Sprint 3 // US 07.2 //
 
+  public void printchkcurdtlesthan150yrsbddate()
+    {
+    	printHeader("Sprint3: US O7.2");
+    	printHeader("Current Date is less than 150 years after birth for all living people");
+    	for(Person p: tree.getPeople()) // beginning of for stmt
+    	{ 
+    		if(p.getBirth()!=null&&p.getDeath()==null) { // outer if stmt
+    			
+    					
+    		if((p.getBirth().isBefore(LocalDate.now())) && ( LocalDate.now().minusYears(150)!=(p.getBirth() )))  
+    			 { // inner if stmt begins
+    						
+    					 System.out.println(" " +p.getName() + " has  birth date: "+ p.getBirth()     );
+    		       			
+    			 } // end of inner if stmt
+    			 
+    			
+    			  
+    			 } //end of outer if stmt
+    		
+    				
+    				
+    			 } //end of for stmt
+    			 
+    	
+    		 	} // end of US O7.2
+    		
+ 
 
 
 	// US28 Order siblings by age

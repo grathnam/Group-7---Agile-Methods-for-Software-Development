@@ -53,7 +53,7 @@ public class Main {
 		treeUtils.printdddateandbdate();// US 07.1
 		treeUtils.printchkcurdtlesthan150yrsbddate();// US 07.2
 		treeUtils.printSiblingSpacingInvalid(); // US 13
-		// treeUtils.printMarriagesToDescendants(); // US 17
+		treeUtils.printMarriagesToDescendants(); // US 17
 
 		// Sprint 4
 		// treeUtils.listMultipleBirths();

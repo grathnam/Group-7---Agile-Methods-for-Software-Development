@@ -12,6 +12,15 @@ public class AgeUtils {
 		return ChronoUnit.DAYS.between(date, LocalDate.now());
 	}
 
+	/**
+	 * Compare two dates by Year, Month, Day
+	 * 
+	 * @param type
+	 *            (=0:Year, =1:Month, =2:Day)
+	 * @param date1
+	 * @param date2
+	 * @return
+	 */
 	public static long getTimeGap(int type, LocalDate date1, LocalDate date2) {
 		if (type == 0)
 			return ChronoUnit.YEARS.between(date1, date2);

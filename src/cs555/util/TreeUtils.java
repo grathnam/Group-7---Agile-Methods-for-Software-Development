@@ -3,6 +3,7 @@ package cs555.util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import cs555.model.Family;
@@ -381,7 +382,7 @@ public class TreeUtils {
 	 * after birth of both spouses)
 	 */
 	public void listMarriageNotAfter14() {
-		printHeader("Printing Marriage not at least 14 years after birth");
+		printHeader("US10: Printing Marriage not at least 14 years after birth");
 		tree.getFamilies()
 				.stream()
 				.filter(f -> AgeUtils.getTimeGap(0, f.getHusband().getBirth(),
@@ -395,7 +396,7 @@ public class TreeUtils {
 	 * siblings in a family)
 	 */
 	public void listFamilyNotFewerThan15Siblings() {
-		printHeader("Printing Families have more than 15 Siblings");
+		printHeader("US15: Printing Families have more than 15 Siblings");
 		tree.getFamilies().stream().filter(f -> f.getChild().size() >= 15)
 				.forEach(System.out::println);
 	}
@@ -442,7 +443,7 @@ public class TreeUtils {
 	 * than his children)
 	 */
 	public void printParentTooOld() {
-		printHeader("Printing Parents too old");
+		printHeader("US12: Printing Parents too old");
 		tree.getFamilies()
 				.stream()
 				.forEach(
@@ -510,7 +511,7 @@ public class TreeUtils {
 	 * or less than 2 days apart.
 	 */
 	public void printSiblingSpacingInvalid() {
-		printHeader("Printing Birth dates of siblings not more than 8 months apart or less than 2 days apart.");
+		printHeader("US13: Printing birth dates of siblings not more than 8 months apart or less than 2 days apart.");
 		for (Family f : tree.getFamilies()) {
 			ArrayList a = new ArrayList();
 			for (Person p : f.getChild()) {
@@ -524,12 +525,10 @@ public class TreeUtils {
 							long month = AgeUtils.getTimeGap(1, p.getBirth(), f
 									.getChild().get(i).getBirth());
 							if (month * (1 - ((month >>> 31) << 1)) < 8) {
-								if (!a.contains(s))
-									a.add(s);
+								a.add(s);
 							}
 						} else {
-							if (!a.contains(s))
-								a.add(s);
+							a.add(s);
 						}
 					}
 				}
@@ -543,7 +542,32 @@ public class TreeUtils {
 	 * Sprint3: US17: Parents should not marry any of their descendants.
 	 */
 	public void printMarriagesToDescendants() {
-		// TODO Auto-generated method stub
+		printHeader("US17: Printing people marry any of his descendants.");
+		for (Person p : tree.getPeople()) {
+			List<Person> arrSpouse = new ArrayList<Person>();
+			List<Person> arrChildren = new ArrayList<Person>();
+			if (p.getSex().equals("M")) {
+				for (Family f : tree.getFamilies()) {
+					if (f.getHusband().getId().equals(p.getId())) {
+						arrSpouse.add(f.getWife());
+						arrChildren.addAll(f.getChild());
+					}
+				}
+			} else if (p.getSex().equals("F")) {
+				for (Family f : tree.getFamilies()) {
+					if (f.getWife().getId().equals(p.getId())) {
+						arrSpouse.add(f.getHusband());
+						arrChildren.addAll(f.getChild());
+					}
+				}
+			}
+			for (int i = 0; i < arrSpouse.size(); i++) {
+				if (arrChildren.contains(arrSpouse.get(i))) {
+					System.out.println("Parent: " + p.toString() + " Child: "
+							+ arrSpouse.get(i).toString());
+				}
+			}
+		}
 
 	}
 }

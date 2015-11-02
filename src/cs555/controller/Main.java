@@ -17,8 +17,7 @@ public class Main {
 
 		Tree tree = new Tree();
 		GEDParser gedParser = new GEDParser(tree);
-		Arrays.stream(args).filter(s -> s.contains(".ged"))
-				.forEach(gedParser::readGED);
+		Arrays.stream(args).filter(s -> s.contains(".ged")).forEach(gedParser::readGED);
 
 		TreeUtils treeUtils = new TreeUtils(tree);
 
@@ -37,22 +36,24 @@ public class Main {
 		treeUtils.listBirthAfterParentsDeath(); // US 09
 
 		// Sprint 2
-		treeUtils.listNonUniqueNamesAndBirthdays();//US23
-		treeUtils.listDeceased();//US29
+		treeUtils.listNonUniqueNamesAndBirthdays();// US23
+		treeUtils.listDeceased();// US29
 		treeUtils.printmardatebefbirdate(); // US 02
 		treeUtils.printdivafterdeathdate(); // US 06
 		treeUtils.printParentTooOld(); // US 12
 		treeUtils.printMaleLastName();// US 16
-		treeUtils.printLivingMarried();//US30
-		treeUtils.printRecentBirths();//US35
-		
-		Sprint 3
+		treeUtils.printLivingMarried();// US30
+		treeUtils.printRecentBirths();// US35
+
+		// Sprint 3
 		// treeUtils.listLivingSingles();
 		// treeUtils.listNonUniqueNamesInFamily();
-                treeUtils.printbddateafterdeathdate(); // US 03
-                treeUtils.printdddateandbdate();//US 07.1
-        treeUtils.printchkcurdtlesthan150yrsbddate();//US 07.2
-        
+		treeUtils.printbddateafterdeathdate(); // US 03
+		treeUtils.printdddateandbdate();// US 07.1
+		treeUtils.printchkcurdtlesthan150yrsbddate();// US 07.2
+		//treeUtils.printSiblingSpacingInvalid(); // US 13
+		//treeUtils.printMarriagesToDescendants(); // US 17
+
 		// Sprint 4
 		// treeUtils.listMultipleBirths();
 	}

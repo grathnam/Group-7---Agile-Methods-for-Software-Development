@@ -568,6 +568,24 @@ public class TreeUtils {
 				}
 			}
 		}
-
 	}
+		public void printRecentDeaths() {
+			printHeader("Printing recent Deaths");
+			for (Person p : tree.getPeople()) {
+				if ((p.getDeath()!=null)&&(AgeUtils.getAgeDays(p.getDeath()) <= 30)) {
+							System.out.println(p);
+					}
+				}
+
+			}
+		
+		public void printUpcommingBirthdays() {
+			printHeader("Printing Upcoming birthdays");
+			for (Person p : tree.getPeople()) {
+				if ((AgeUtils.getAge(p.getBirth())>=0)&&(AgeUtils.getTimeGap(2,p.getBirth(),LocalDate.now()) >= -30 && AgeUtils.getTimeGap(2,p.getBirth(),LocalDate.now()) <= 0)&&(p.getDeath()==null)) {
+							System.out.println(p);
+					}
+				}
+
+			}
 }

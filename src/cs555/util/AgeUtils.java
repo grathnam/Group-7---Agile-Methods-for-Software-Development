@@ -11,6 +11,7 @@ public class AgeUtils {
 	public static long getAgeDays(LocalDate date) {
 		return ChronoUnit.DAYS.between(date, LocalDate.now());
 	}
+	
 
 	/**
 	 * Compare two dates by Year, Month, Day

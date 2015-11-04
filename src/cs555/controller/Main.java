@@ -54,6 +54,8 @@ public class Main {
 		treeUtils.printchkcurdtlesthan150yrsbddate();// US 07.2
 		treeUtils.printSiblingSpacingInvalid(); // US 13
 		treeUtils.printMarriagesToDescendants(); // US 17
+		treeUtils.printRecentDeaths();//US 36
+		treeUtils.printUpcommingBirthdays();//US 38
 
 		// Sprint 4
 		// treeUtils.listMultipleBirths();

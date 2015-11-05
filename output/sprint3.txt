@@ -1,3 +1,4 @@
+"C:\Program Files\Java\jdk1.8.0_60\bin\java" -Didea.launcher.port=7532 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 15.0\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\brian\temp\Group-7---Agile-Methods-for-Software-Development\bin;C:\Program Files\Java\jdk1.8.0_60\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 15.0\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain cs555.controller.Main
 You should provide an argument for which file you want to read. Defaulting to test.ged
 
 ------------
@@ -28,7 +29,7 @@ Printing People
 [@I4@] (2020-12-12) Peter /Green/ (-5)
 [@I5@] (1958-01-02) Bonnie /Brown/ (57)
 [@I6@] (1972-04-01) Debby /Wood/ (43)
-[@I7@] (1976-04-19) Grace /Green/ (39)
+[@I7@] (1976-11-19) Grace /Green/ (38)
 [@I8@] (1993-01-03) Child1 /Green/ (22)
 [@I9@] (1991-01-07) Child2 /Green/ (24)
 
@@ -54,6 +55,8 @@ Anna /Kim/ has an invalid birthday of: 2018-05-01
 ------------
 Death Date exceeding current date
 
+[@I4@] (2020-12-12) Peter /Green/ (-5)
+Peter /Green/ has an invalid death day of: 2015-11-18
 
 ------------
 Divorce date exceeding current date
@@ -63,7 +66,7 @@ Divorce date exceeding current date
 ------------
 Marriage Date exceeding current date
 
- [[@I4@] (2020-12-12) Peter /Green/ (-5), [@I6@] (1972-04-01) Debby /Wood/ (43), [@I7@] (1976-04-19) Grace /Green/ (39), [@I13@] (1994-03-10) SameBDayAndName /Green/ (21), [@I14@] (1994-03-10) SameBDayAndName /Green/ (21), [@I15@] (1954-03-10) DeadParent1 /Green/ (61), [@I16@] (1943-03-10) DeadParent2 /Green/ (72), [@I18@] (2000-03-10) asdf /Green/ (15), [@I19@] (2000-03-10) asdf /Green/ (15), [@I20@] (2000-03-10) asdf /Green/ (15), [@I21@] (2000-03-10) asdf /Green/ (15), [@I22@] (2000-03-10) asdf /Green/ (15), [@I23@] (2000-03-10) asdf /Green/ (15), [@I24@] (2000-03-10) asdf /LastName/ (15), [@I25@] (2000-03-10) asdf /LastName/ (15), [@I26@] (2000-03-10) asdf /LastName/ (15), [@I27@] (2030-03-10) asdf /Green/ (-14), [@I28@] (2015-10-10) asdf /Green/ (0)] has an invalid marriage date of: 2018-10-01
+ [[@I4@] (2020-12-12) Peter /Green/ (-5), [@I6@] (1972-04-01) Debby /Wood/ (43), [@I7@] (1976-11-19) Grace /Green/ (38), [@I13@] (1994-03-10) SameBDayAndName /Green/ (21), [@I14@] (1994-03-10) SameBDayAndName /Green/ (21), [@I15@] (1954-03-10) DeadParent1 /Green/ (61), [@I16@] (1943-03-10) DeadParent2 /Green/ (72), [@I18@] (2000-03-10) asdf /Green/ (15), [@I19@] (2000-03-10) asdf /Green/ (15), [@I20@] (2000-03-10) asdf /Green/ (15), [@I21@] (2000-03-10) asdf /Green/ (15), [@I22@] (2000-03-10) asdf /Green/ (15), [@I23@] (2000-03-10) asdf /Green/ (15), [@I24@] (2000-03-10) asdf /LastName/ (15), [@I25@] (2000-03-10) asdf /LastName/ (15), [@I26@] (2000-03-10) asdf /LastName/ (15), [@I27@] (2030-03-10) asdf /Green/ (-14), [@I28@] (2015-10-10) asdf /Green/ (0)] has an invalid marriage date of: 2018-10-01
 
 ------------
 US 05
@@ -72,16 +75,29 @@ US 05
 ------------
 Marraige Date exceeding death date
 
-  Peter /Green/ has  marriage date: 2018-10-01 and  Death date:  2015-07-18
+  Peter /Green/ has  marriage date: 2018-10-01 and  Death date:  2015-11-18
   Debby /Wood/ has  marriage date: 2018-10-01 and  Death date:  1963-07-06
 
 ------------
 Ordering Siblings by Age
 
+[@F4@]	DeadParent1 /Green/	+	DeadParent2 /Green/
+ >	[@I17@] (2000-03-10) Orpghan /Green/ (15)
+[@F1@]	Jim /Green/	+	Anna /Kim/
+ >	[@I9@] (1991-01-07) Child2 /Green/ (24)
+ >	[@I1@] (1991-01-10) Emmy /Green/ (24)
+ >	[@I10@] (1992-01-10) Child3 /Green/ (23)
+ >	[@I8@] (1993-01-03) Child1 /Green/ (22)
+[@F2@]	Peter /Green/	+	Bonnie /Brown/
+ >	[@I2@] (1990-10-01) Jim /Green/ (25)
+ >	[@I11@] (1994-02-10) SameBDay /Green/ (21)
+ >	[@I12@] (1994-02-10) SameBDay2 /Green/ (21)
+[@F5@]	Jim /Green/	+	Emmy /Green/
+ >	[@I17@] (2000-03-10) Orpghan /Green/ (15)
 [@F3@]	Peter /Green/	+	Debby /Wood/
  >	[@I16@] (1943-03-10) DeadParent2 /Green/ (72)
  >	[@I15@] (1954-03-10) DeadParent1 /Green/ (61)
- >	[@I7@] (1976-04-19) Grace /Green/ (39)
+ >	[@I7@] (1976-11-19) Grace /Green/ (38)
  >	[@I13@] (1994-03-10) SameBDayAndName /Green/ (21)
  >	[@I14@] (1994-03-10) SameBDayAndName /Green/ (21)
  >	[@I18@] (2000-03-10) asdf /Green/ (15)
@@ -95,19 +111,6 @@ Ordering Siblings by Age
  >	[@I26@] (2000-03-10) asdf /LastName/ (15)
  >	[@I28@] (2015-10-10) asdf /Green/ (0)
  >	[@I27@] (2030-03-10) asdf /Green/ (-14)
-[@F1@]	Jim /Green/	+	Anna /Kim/
- >	[@I9@] (1991-01-07) Child2 /Green/ (24)
- >	[@I1@] (1991-01-10) Emmy /Green/ (24)
- >	[@I10@] (1992-01-10) Child3 /Green/ (23)
- >	[@I8@] (1993-01-03) Child1 /Green/ (22)
-[@F4@]	DeadParent1 /Green/	+	DeadParent2 /Green/
- >	[@I17@] (2000-03-10) Orpghan /Green/ (15)
-[@F5@]	Jim /Green/	+	Emmy /Green/
- >	[@I17@] (2000-03-10) Orpghan /Green/ (15)
-[@F2@]	Peter /Green/	+	Bonnie /Brown/
- >	[@I2@] (1990-10-01) Jim /Green/ (25)
- >	[@I11@] (1994-02-10) SameBDay /Green/ (21)
- >	[@I12@] (1994-02-10) SameBDay2 /Green/ (21)
 
 ------------
 Printing Incorrect Gender Roles
@@ -148,7 +151,7 @@ Printing the People born after death of parents
 [@I2@] (1990-10-01) Jim /Green/ (25)
 [@I11@] (1994-02-10) SameBDay /Green/ (21)
 [@I12@] (1994-02-10) SameBDay2 /Green/ (21)
-[@I7@] (1976-04-19) Grace /Green/ (39)
+[@I7@] (1976-11-19) Grace /Green/ (38)
 [@I13@] (1994-03-10) SameBDayAndName /Green/ (21)
 [@I14@] (1994-03-10) SameBDayAndName /Green/ (21)
 [@I15@] (1954-03-10) DeadParent1 /Green/ (61)
@@ -180,7 +183,7 @@ Printing Deceased
 [@I16@] (1943-03-10) DeadParent2 /Green/ (72)
 
 ------------
-Sprint 2: US 02: Marraige dates that is  before the birth of a person 
+Sprint 2: US 02: Marraige dates that is  before the birth of a person
 
   Jim /Green/ has marraige date : 1989-10-01 and  Birth date:  1990-10-01
   Peter /Green/ has marraige date : 1988-10-01 and  Birth date:  2020-12-12
@@ -188,9 +191,9 @@ Sprint 2: US 02: Marraige dates that is  before the birth of a person
   Anna /Kim/ has marraige date : 1989-10-01 and  Birth date:  2018-05-01
 
 ------------
-Sprint 2: US 06: Divorce date that is after the death date of a person 
+Sprint 2: US 06: Divorce date that is after the death date of a person
 
- Peter /Green/ has  divorce date: 2020-08-03  and death date: 2015-07-18
+ Peter /Green/ has  divorce date: 2020-08-03  and death date: 2015-11-18
  Bonnie /Brown/ has  divorce date: 2020-08-03  and death date: 2010-08-01
 
 ------------
@@ -215,13 +218,27 @@ Printing Recent Births (with last 30 days)
 [@I28@] (2015-10-10) asdf /Green/ (0)
 
 ------------
+Listing Living Singles
+
+[@I15@] (1954-03-10) DeadParent1 /Green/ (61)
+[@I7@] (1976-11-19) Grace /Green/ (38)
+[@I16@] (1943-03-10) DeadParent2 /Green/ (72)
+
+------------
+Printing Non-Unique First Names and Birth Dates In Each Family
+
+[@F3@]	Peter /Green/	+	Debby /Wood/
+ >	[[@I18@] (2000-03-10) asdf /Green/ (15), [@I19@] (2000-03-10) asdf /Green/ (15), [@I20@] (2000-03-10) asdf /Green/ (15), [@I21@] (2000-03-10) asdf /Green/ (15), [@I22@] (2000-03-10) asdf /Green/ (15), [@I23@] (2000-03-10) asdf /Green/ (15), [@I24@] (2000-03-10) asdf /LastName/ (15), [@I25@] (2000-03-10) asdf /LastName/ (15), [@I26@] (2000-03-10) asdf /LastName/ (15)]
+ >	[[@I13@] (1994-03-10) SameBDayAndName /Green/ (21), [@I14@] (1994-03-10) SameBDayAndName /Green/ (21)]
+
+------------
 US 03
 
 
 ------------
 Birth Date exceeding Death date
 
-  Peter /Green/ has  birth date: 2020-12-12 and  Death date:  2015-07-18
+  Peter /Green/ has  birth date: 2020-12-12 and  Death date:  2015-11-18
   Debby /Wood/ has  birth date: 1972-04-01 and  Death date:  1963-07-06
 
 ------------
@@ -252,7 +269,7 @@ Current Date is less than 150 years after birth for all living people
  Orpghan /Green/ has  birth date: 2000-03-10
  asdf /Green/ has  birth date: 2000-03-10
  Emmy /Green/ has  birth date: 1991-01-10
- Grace /Green/ has  birth date: 1976-04-19
+ Grace /Green/ has  birth date: 1976-11-19
  Child2 /Green/ has  birth date: 1991-01-07
  asdf /Green/ has  birth date: 2000-03-10
  SameBDay2 /Green/ has  birth date: 1994-02-10
@@ -268,10 +285,22 @@ Current Date is less than 150 years after birth for all living people
 US13: Printing birth dates of siblings not more than 8 months apart or less than 2 days apart.
 
 @F2@ [@I11@ SameBDay /Green/, @I12@ SameBDay2 /Green/]
-@F1@ [@I1@ Emmy /Green/, @I9@ Child2 /Green/]
-@F3@ [@I13@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/]
+@F1@ [@I1@ Emmy /Green/, @I1@ Emmy /Green/, @I9@ Child2 /Green/, @I10@ Child3 /Green/]
+@F3@ [@I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I13@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I14@ SameBDayAndName /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I15@ DeadParent1 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I16@ DeadParent2 /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I18@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I19@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I20@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I21@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I22@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I23@ asdf /Green/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I24@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I25@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I26@ asdf /LastName/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/, @I27@ asdf /Green/]
 
 ------------
 US17: Printing people marry any of his descendants.
 
 Parent: [@I2@] (1990-10-01) Jim /Green/ (25) Child: [@I1@] (1991-01-10) Emmy /Green/ (24)
+
+------------
+Printing recent Deaths
+
+[@I4@] (2020-12-12) Peter /Green/ (-5)
+
+------------
+Printing Upcoming birthdays
+
+[@I7@] (1976-11-19) Grace /Green/ (38)
+
+Process finished with exit code 0

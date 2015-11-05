@@ -1,7 +1,9 @@
 package cs555.util;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalField;
 
 public class AgeUtils {
 	public static long getAge(LocalDate date) {
@@ -28,7 +30,7 @@ public class AgeUtils {
 		if (type == 1)
 			return ChronoUnit.MONTHS.between(date1, date2);
 		if (type == 2)
-			return ChronoUnit.DAYS.between(date1, date2);
+			return date2.get(ChronoField.DAY_OF_YEAR) - date1.get(ChronoField.DAY_OF_YEAR);
 		return 0;
 	}
 

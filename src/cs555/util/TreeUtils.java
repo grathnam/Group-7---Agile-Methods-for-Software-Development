@@ -3,6 +3,7 @@ package cs555.util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -525,10 +526,9 @@ public class TreeUtils {
 							long month = AgeUtils.getTimeGap(1, p.getBirth(), f
 									.getChild().get(i).getBirth());
 							if (month * (1 - ((month >>> 31) << 1)) < 8) {
-								a.add(s);
+								if (!a.contains(s))
+									a.add(s);
 							}
-						} else {
-							a.add(s);
 						}
 					}
 				}
@@ -569,23 +569,102 @@ public class TreeUtils {
 			}
 		}
 	}
-		public void printRecentDeaths() {
-			printHeader("Printing recent Deaths");
-			for (Person p : tree.getPeople()) {
-				if ((p.getDeath()!=null)&&(AgeUtils.getAgeDays(p.getDeath()) <= 30)) {
-							System.out.println(p);
+
+	public void printRecentDeaths() {
+		printHeader("Printing recent Deaths");
+		for (Person p : tree.getPeople()) {
+			if ((p.getDeath() != null)
+					&& (AgeUtils.getAgeDays(p.getDeath()) <= 30)) {
+				System.out.println(p);
+			}
+		}
+
+	}
+
+	public void printUpcommingBirthdays() {
+		printHeader("Printing Upcoming birthdays");
+		for (Person p : tree.getPeople()) {
+			if ((AgeUtils.getAge(p.getBirth()) >= 0)
+					&& (AgeUtils.getTimeGap(2, p.getBirth(), LocalDate.now()) >= -30 && AgeUtils
+							.getTimeGap(2, p.getBirth(), LocalDate.now()) <= 0)
+					&& (p.getDeath() == null)) {
+				System.out.println(p);
+			}
+		}
+
+	}
+
+	/**
+	 * Sprint4: US14: No more than five siblings should be born at the same
+	 * time.
+	 */
+	public void printMulBirthMoreThanFive() {
+		printHeader("Printing mutiple birth more than five.");
+		for (Family f : tree.getFamilies()) {
+			ArrayList already = new ArrayList();
+			for (Person p : f.getChild()) {
+				if (!already.contains(p.getId())) {
+					ArrayList sidlings = new ArrayList();
+					String s = p.getId() + " " + p.getName();
+					for (int i = 0; i < f.getChild().size(); i++) {
+						s = f.getChild().get(i).getId() + " "
+								+ f.getChild().get(i).getName();
+						long day = AgeUtils.getTimeGap(2, p.getBirth(), f
+								.getChild().get(i).getBirth());
+						long month = AgeUtils.getTimeGap(1, p.getBirth(), f
+								.getChild().get(i).getBirth());
+						if ((day * (1 - ((day >>> 31) << 1)) < 2) && month == 0) {
+							if (!sidlings.contains(s)) {
+								already.add(f.getChild().get(i).getId());
+								sidlings.add(s);
+							}
+						}
+					}
+
+					if (!sidlings.isEmpty())
+						if (sidlings.size() > 5)
+							System.out.println(f.getId() + " "
+									+ sidlings.toString());
+				}
+			}
+		}
+	}
+
+	/**
+	 * Sprint4: US18: Siblings should not marry one another.
+	 */
+	public void printSiblingsMarriage() {
+		printHeader("Printing marriage with sidlings.");
+		for (Person p : tree.getPeople()) {
+			if (p.getId().equals("@I27@")) {
+				Iterator<Family> Famc = p.getFamc().iterator();
+				Iterator<Family> Fams = p.getFams().iterator();
+				if (p.getSex().equals("F")) {
+					while (Fams.hasNext()) {
+						Family fs = Fams.next();
+						while (Famc.hasNext()) {
+							Family fc = Famc.next();
+							if (fc.getChild().contains(fs.getHusband()))
+								System.out.println(p.toString()
+										+ " marriage with her brother "
+										+ fs.getHusband().toString()
+										+ " from family " + fc.getId());
+						}
+					}
+				} else if (p.getSex().equals("M")) {
+					while (Fams.hasNext()) {
+						Family fs = Fams.next();
+						while (Famc.hasNext()) {
+							Family fc = Famc.next();
+							if (fc.getChild().contains(fs.getWife()))
+								System.out.println(p.toString()
+										+ " marriage with his sister "
+										+ fs.getWife().toString()
+										+ " from family " + fc.getId());
+						}
 					}
 				}
-
 			}
-		
-		public void printUpcommingBirthdays() {
-			printHeader("Printing Upcoming birthdays");
-			for (Person p : tree.getPeople()) {
-				if ((AgeUtils.getAge(p.getBirth())>=0)&&(AgeUtils.getTimeGap(2,p.getBirth(),LocalDate.now()) >= -30 && AgeUtils.getTimeGap(2,p.getBirth(),LocalDate.now()) <= 0)&&(p.getDeath()==null)) {
-							System.out.println(p);
-					}
-				}
-
-			}
+		}
+	}
 }

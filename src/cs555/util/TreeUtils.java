@@ -226,6 +226,9 @@ public class TreeUtils {
 
 	} // end of US O7.2
 //Sprint 04 //US 04
+  
+  	   
+//Sprint 04 //US 04
   public void marrdtbefdivdt(){ // marriage  should occur before divorce
 	  printHeader(" Sprint 4: US 04");
   	printHeader("Marriage Date is after divorce date");
@@ -238,7 +241,7 @@ public class TreeUtils {
   		   if(f.getMarr().isAfter(f.getDiv()))
   	     { //beginning of inner if stmt
   	        
-  	        System.out.println(" "  + p.getName()+ " has  marriage date: " + f.getMarr() + "  and divroce date: " + f.getDiv() );
+  	        System.out.println(" "  +p.getName()+ " has  marriage date: " +f.getMarr() + "  and divroce date: " +f.getDiv() );
   	        
   	     
   	     } //end of outer if stmt
@@ -249,6 +252,44 @@ public class TreeUtils {
   	 }
 	  
   } //end of US 04
+  //Sprint 4:US 08.1
+  //Sprint 04:US 08.1//Children born before marriage date of parents
+	public void chdbdafptmardate(){
+		printHeader("Sprint 4: US:08.01");
+		printHeader("Children born before marriage date of parents");
+		for(Person p:tree.getPeople()){
+			for(Family f:p.getFamc()){
+				if(f.getHusband()!=null&&f.getWife()!=null&&f.getMarr()!=null)
+				{
+					if(f.getMarr().isAfter(p.getBirth()))
+					{
+						System.out.println(p);
+					}
+				}
+			}
+						
+			}
+		}
+	
+	//Sprint 04:US 08.2 //Children born after divorce date of parents
+	public void chdbdbfptdivdate(){
+		printHeader("Sprint 4: US:08.02");
+		printHeader("Children born after divorce date of parents");
+		for(Person p:tree.getPeople()){
+			for(Family f:p.getFamc()){
+				if(f.getHusband()!=null&&f.getWife()!=null&&f.getDiv()!=null)
+				{
+					if(f.getDiv().isBefore(p.getBirth()))
+					{
+						System.out.println(p);
+					}
+				}
+			}
+						
+			}
+		}
+  
+   
 	// US28 Order siblings by age
 	// List siblings in families by age
 	public void listSiblingsOrdedByAge() {

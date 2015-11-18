@@ -1,5 +1,9 @@
 package cs555.util;
 
+import cs555.model.Family;
+import cs555.model.Person;
+import cs555.model.Tree;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,728 +11,704 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import cs555.model.Family;
-import cs555.model.Person;
-import cs555.model.Tree;
-
 public class TreeUtils {
-	private final Tree tree;
+    private final Tree tree;
 
-	public TreeUtils(Tree tree) {
-		this.tree = tree;
-	}
+    public TreeUtils(Tree tree) {
+        this.tree = tree;
+    }
 
-	// US 01
-	public void printbdeexceedcurrentdate() {
-		printHeader("Birth Date exceeding current date");
-		tree.getPeople().stream()
-				.filter(p -> p.getBirth().isAfter(LocalDate.now()))
-				.forEach(System.out::println);
-		tree.getPeople()
-				.stream()
-				.filter(p -> p.getBirth().isAfter(LocalDate.now()))
-				.forEach(
-						p -> System.out.println(p.getName()
-								+ " has an invalid birthday of: "
-								+ p.getBirth()));
-		printHeader("Death Date exceeding current date");
-		tree.getPeople()
-				.stream()
-				.filter(p -> p.getDeath() != null
-						&& p.getDeath().isAfter(LocalDate.now()))
-				.forEach(System.out::println);
-		tree.getPeople()
-				.stream()
-				.filter(p -> p.getDeath() != null
-						&& p.getDeath().isAfter(LocalDate.now()))
-				.forEach(
-						p -> System.out.println(p.getName()
-								+ " has an invalid death day of: "
-								+ p.getDeath()));
+    // US 01
+    public void printbdeexceedcurrentdate() {
+        printHeader("Birth Date exceeding current date");
+        tree.getPeople().stream()
+                .filter(p -> p.getBirth().isAfter(LocalDate.now()))
+                .forEach(System.out::println);
+        tree.getPeople()
+                .stream()
+                .filter(p -> p.getBirth().isAfter(LocalDate.now()))
+                .forEach(
+                        p -> System.out.println(p.getName()
+                                + " has an invalid birthday of: "
+                                + p.getBirth()));
+        printHeader("Death Date exceeding current date");
+        tree.getPeople()
+                .stream()
+                .filter(p -> p.getDeath() != null
+                        && p.getDeath().isAfter(LocalDate.now()))
+                .forEach(System.out::println);
+        tree.getPeople()
+                .stream()
+                .filter(p -> p.getDeath() != null
+                        && p.getDeath().isAfter(LocalDate.now()))
+                .forEach(
+                        p -> System.out.println(p.getName()
+                                + " has an invalid death day of: "
+                                + p.getDeath()));
 
-	}
+    }
 
-	public void printmardivdateexcurdate() // US 01.2
-	{
-		printHeader("Divorce date exceeding current date");
+    public void printmardivdateexcurdate() // US 01.2
+    {
+        printHeader("Divorce date exceeding current date");
 
-		tree.getFamilies()
-				.stream()
-				.filter(f -> f.getDiv() != null
-						&& f.getDiv().isAfter(LocalDate.now()))
-				.forEach(
-						f -> System.out.println(" " + f.getMembers()
-								+ " has an invalid divorse date of: "
-								+ f.getDiv()));
-		printHeader("Marriage Date exceeding current date");
-		tree.getFamilies()
-				.stream()
-				.filter(f -> f.getMarr() != null
-						&& f.getMarr().isAfter(LocalDate.now()))
-				.forEach(
-						f -> System.out.println(" " + f.getMembers()
-								+ " has an invalid marriage date of: "
-								+ f.getMarr()));
-	}
+        tree.getFamilies()
+                .stream()
+                .filter(f -> f.getDiv() != null && f.getDiv().isAfter(LocalDate.now()))
+                .forEach(f -> System.out.println(" " + f.getHusband() + " and " + f.getWife() + " have an invalid divorse date of: " + f.getDiv()));
+        printHeader("Marriage Date exceeding current date");
+        tree.getFamilies()
+                .stream()
+                .filter(f -> f.getMarr() != null && f.getMarr().isAfter(LocalDate.now()))
+                .forEach(f -> System.out.println(" " + f.getHusband() + " and " + f.getWife() + " have an invalid marriage date of: " + f.getMarr()));
+    }
 
-	// US 05 Marriage should occur before death of either of spouse
-	public void printinvalidmaranddivorcedate() // prints marriage date and
-												// divorce exceeding current
-												// date
-	{
-		printHeader("US 05");
-		printHeader("Marraige Date exceeding death date");
+    // US 05 Marriage should occur before death of either of spouse
+    public void printinvalidmaranddivorcedate() // prints marriage date and
+    // divorce exceeding current
+    // date
+    {
+        printHeader("US 05");
+        printHeader("Marraige Date exceeding death date");
 
-		for (Person p : tree.getPeople()) {
-			for (Family f : p.getFams()) {
-				if (f.getMarr() != null && p.getDeath() != null) {
-					if (f.getMarr().isAfter(p.getDeath())) {
-						System.out.println("  " + p.getName()
-								+ " has  marriage date: " + f.getMarr()
-								+ " and " + " Death date:  " + p.getDeath());
+        for (Person p : tree.getPeople()) {
+            for (Family f : p.getFams()) {
+                if (f.getMarr() != null && p.getDeath() != null) {
+                    if (f.getMarr().isAfter(p.getDeath())) {
+                        System.out.println("  " + p.getName()
+                                + " has  marriage date: " + f.getMarr()
+                                + " and " + " Death date:  " + p.getDeath());
 
-					}
+                    }
 
-				} // end of outer if stmt
-			} // end of outer for stmt
-		} // end of inner for stmt
-	}
+                } // end of outer if stmt
+            } // end of outer for stmt
+        } // end of inner for stmt
+    }
 
-	// Sprint 2 //US 02
-	public void printmardatebefbirdate() // US 02 - prints marraige date that is
-											// before birth of a person
-	{
-		printHeader("Sprint 2: US 02: Marraige dates that is  before the birth of a person ");
+    // Sprint 2 //US 02
+    public void printmardatebefbirdate() // US 02 - prints marraige date that is
+    // before birth of a person
+    {
+        printHeader("Sprint 2: US 02: Marraige dates that is  before the birth of a person ");
 
-		for (Person p : tree.getPeople()) { // beginning of outer for loop
-			for (Family f : p.getFams()) { // beginning of inner for loop
-				if (f.getMarr() != null && p.getBirth() != null) { // beginning
-																	// of outer
-																	// if stmt
-					if (f.getMarr().isBefore(p.getBirth())) { // beginning of
-																// inner if stmt
+        for (Person p : tree.getPeople()) { // beginning of outer for loop
+            for (Family f : p.getFams()) { // beginning of inner for loop
+                if (f.getMarr() != null && p.getBirth() != null) { // beginning
+                    // of outer
+                    // if stmt
+                    if (f.getMarr().isBefore(p.getBirth())) { // beginning of
+                        // inner if stmt
 
-						System.out.println("  " + p.getName()
-								+ " has marraige date : " + f.getMarr()
-								+ " and " + " Birth date:  " + p.getBirth());
+                        System.out.println("  " + p.getName()
+                                + " has marraige date : " + f.getMarr()
+                                + " and " + " Birth date:  " + p.getBirth());
 
-					} // end of outer if stmt
+                    } // end of outer if stmt
 
-				} // end of outer if stmt
+                } // end of outer if stmt
 
-			} // end of inner for loop
-		} // end of for outer for loop
+            } // end of inner for loop
+        } // end of for outer for loop
 
-	}// end of US 02
+    }// end of US 02
 
-	// Sprint 2 //US 06 // prints divorce date is after death date
-	public void printdivafterdeathdate() // US 06
-	{
-		printHeader("Sprint 2: US 06: Divorce date that is after the death date of a person ");
+    // Sprint 2 //US 06 // prints divorce date is after death date
+    public void printdivafterdeathdate() // US 06
+    {
+        printHeader("Sprint 2: US 06: Divorce date that is after the death date of a person ");
 
-		for (Person p : tree.getPeople()) { // beginning of outer for loop
-			for (Family f : p.getFams()) { // beginning of inner for loop
-				if (f.getDiv() != null && p.getDeath() != null) { // beginning
-																	// of outer
-																	// if stmt
-					if (f.getDiv().isAfter(p.getDeath())) { // beginning of
-															// inner if stmt
+        for (Person p : tree.getPeople()) { // beginning of outer for loop
+            for (Family f : p.getFams()) { // beginning of inner for loop
+                if (f.getDiv() != null && p.getDeath() != null) { // beginning
+                    // of outer
+                    // if stmt
+                    if (f.getDiv().isAfter(p.getDeath())) { // beginning of
+                        // inner if stmt
 
-						System.out.println(" " + p.getName()
-								+ " has  divorce date: " + f.getDiv()
-								+ "  and death date: " + p.getDeath());
+                        System.out.println(" " + p.getName()
+                                + " has  divorce date: " + f.getDiv()
+                                + "  and death date: " + p.getDeath());
 
-					} // end of outer if stmt
+                    } // end of outer if stmt
 
-				} // end of outer if stmt
+                } // end of outer if stmt
 
-			} // end of inner for loop
-		} // end of outer for loop
-	} // end of US 06
-		// Sprint 3
+            } // end of inner for loop
+        } // end of outer for loop
+    } // end of US 06
+    // Sprint 3
 
-	public void printbddateafterdeathdate() {
+    public void printbddateafterdeathdate() {
 
-		printHeader("US 03");
-		printHeader("Birth Date exceeding Death date");
+        printHeader("US 03");
+        printHeader("Birth Date exceeding Death date");
 
-		for (Person p : tree.getPeople())
+        for (Person p : tree.getPeople())
 
-		{
-			if (p.getBirth() != null && p.getDeath() != null) {
-				if (p.getBirth().isAfter(p.getDeath())) {
-					System.out.println("  " + p.getName()
-							+ " has  birth date: " + p.getBirth() + " and "
-							+ " Death date:  " + p.getDeath());
+        {
+            if (p.getBirth() != null && p.getDeath() != null) {
+                if (p.getBirth().isAfter(p.getDeath())) {
+                    System.out.println("  " + p.getName()
+                            + " has  birth date: " + p.getBirth() + " and "
+                            + " Death date:  " + p.getDeath());
 
-				} // end of outer if stmt
-			} // end of inner if stmt
-		} // end for stmt
+                } // end of outer if stmt
+            } // end of inner if stmt
+        } // end for stmt
 
-	} // end of US O3
+    } // end of US O3
 
-	// Sprint 3 //US O7.1 // Death date less than 150 years after birth for dead
-	// people
-	public void printdddateandbdate() {
-		printHeader("Sprint3: US O7.1");
-		printHeader("Death date less than 150 years after birth for dead people");
-		for (Person p : tree.getPeople()) // beginning of for stmt
-		{
-			if (p.getBirth() != null && p.getDeath() != null) { // outer if stmt
-				if ((p.getBirth().isBefore(LocalDate.now()) && (p.getDeath()
-						.isBefore(LocalDate.now())))) {
-					if (((p.getDeath().isAfter(p.getBirth())))
-							&& (p.getDeath().minusYears(150) != (p.getBirth()))) // checks
-																					// if
-																					// death
-																					// date
-																					// is
-																					// valid
-					{ // inner if stmt begins
+    // Sprint 3 //US O7.1 // Death date less than 150 years after birth for dead
+    // people
+    public void printdddateandbdate() {
+        printHeader("Sprint3: US O7.1");
+        printHeader("Death date less than 150 years after birth for dead people");
+        for (Person p : tree.getPeople()) // beginning of for stmt
+        {
+            if (p.getBirth() != null && p.getDeath() != null) { // outer if stmt
+                if ((p.getBirth().isBefore(LocalDate.now()) && (p.getDeath()
+                        .isBefore(LocalDate.now())))) {
+                    if (((p.getDeath().isAfter(p.getBirth())))
+                            && (p.getDeath().minusYears(150) != (p.getBirth()))) // checks
+                    // if
+                    // death
+                    // date
+                    // is
+                    // valid
+                    { // inner if stmt begins
 
-						System.out.println(" " + p.getName()
-								+ " has  birth date: " + p.getBirth()
-								+ " and    " + " Death date:" + p.getDeath());
+                        System.out.println(" " + p.getName()
+                                + " has  birth date: " + p.getBirth()
+                                + " and    " + " Death date:" + p.getDeath());
 
-					} // end of inner if stmt
+                    } // end of inner if stmt
 
-				} // end middle if
+                } // end middle if
 
-			} // end of outer if stmt
+            } // end of outer if stmt
 
-		} // end of for stmt
+        } // end of for stmt
 
-	} // end of US O7.1
+    } // end of US O7.1
 
-	// Sprint 3 // US 07.2 //
+    // Sprint 3 // US 07.2 //
 
-	public void printchkcurdtlesthan150yrsbddate() {
-		printHeader("Sprint3: US O7.2");
-		printHeader("Current Date is less than 150 years after birth for all living people");
-		for (Person p : tree.getPeople()) // beginning of for stmt
-		{
-			if (p.getBirth() != null && p.getDeath() == null) { // outer if stmt
+    public void printchkcurdtlesthan150yrsbddate() {
+        printHeader("Sprint3: US O7.2");
+        printHeader("Current Date is less than 150 years after birth for all living people");
+        for (Person p : tree.getPeople()) // beginning of for stmt
+        {
+            if (p.getBirth() != null && p.getDeath() == null) { // outer if stmt
 
-				if ((p.getBirth().isBefore(LocalDate.now()))
-						&& (LocalDate.now().minusYears(150) != (p.getBirth()))) { // inner
-																					// if
-																					// stmt
-																					// begins
+                if ((p.getBirth().isBefore(LocalDate.now()))
+                        && (LocalDate.now().minusYears(150) != (p.getBirth()))) { // inner
+                    // if
+                    // stmt
+                    // begins
 
-					System.out.println(" " + p.getName() + " has  birth date: "
-							+ p.getBirth());
+                    System.out.println(" " + p.getName() + " has  birth date: "
+                            + p.getBirth());
 
-				} // end of inner if stmt
+                } // end of inner if stmt
 
-			} // end of outer if stmt
+            } // end of outer if stmt
 
-		} // end of for stmt
+        } // end of for stmt
 
-	} // end of US O7.2
+    } // end of US O7.2
 //Sprint 04 //US 04
-  
-  	   
-//Sprint 04 //US 04
-  public void marrdtbefdivdt(){ // marriage  should occur before divorce
-	  printHeader(" Sprint 4: US 04");
-  	printHeader("Marriage Date is after divorce date");
-  	 for( Person p : tree.getPeople()) 
-  	 { //beginning of outer for loop
-  	 for(Family f:p.getFams())
-  	 { //beginning of inner for loop
-  	   if(f.getMarr()!=null && f.getDiv()!=null)
-  	   { // beginning of outer if stmt
-  		   if(f.getMarr().isAfter(f.getDiv()))
-  	     { //beginning of inner if stmt
-  	        
-  	        System.out.println(" "  +p.getName()+ " has  marriage date: " +f.getMarr() + "  and divroce date: " +f.getDiv() );
-  	        
-  	     
-  	     } //end of outer if stmt
-  	   
-  	   } // end of outer if stmt
-  	   
-  	 } // end of inner for loop
-  	 }
-	  
-  } //end of US 04
-  //Sprint 4:US 08.1
-  //Sprint 04:US 08.1//Children born before marriage date of parents
-	public void chdbdafptmardate(){
-		printHeader("Sprint 4: US:08.01");
-		printHeader("Children born before marriage date of parents");
-		for(Person p:tree.getPeople()){
-			for(Family f:p.getFamc()){
-				if(f.getHusband()!=null&&f.getWife()!=null&&f.getMarr()!=null)
-				{
-					if(f.getMarr().isAfter(p.getBirth()))
-					{
-						System.out.println(p);
-					}
-				}
-			}
-						
-			}
-		}
-	
-	//Sprint 04:US 08.2 //Children born after divorce date of parents
-	public void chdbdbfptdivdate(){
-		printHeader("Sprint 4: US:08.02");
-		printHeader("Children born after divorce date of parents");
-		for(Person p:tree.getPeople()){
-			for(Family f:p.getFamc()){
-				if(f.getHusband()!=null&&f.getWife()!=null&&f.getDiv()!=null)
-				{
-					if(f.getDiv().isBefore(p.getBirth()))
-					{
-						System.out.println(p);
-					}
-				}
-			}
-						
-			}
-		}
-  
-   
-	// US28 Order siblings by age
-	// List siblings in families by age
-	public void listSiblingsOrdedByAge() {
-		printHeader("Ordering Siblings by Age");
-		tree.getFamilies()
-				.stream()
-				.collect(
-						Collectors.toMap(
-								f -> f,
-								f -> f.getChild()
-										.stream()
-										.sorted((p1, p2) -> p1.getBirth()
-												.compareTo(p2.getBirth()))
-										.collect(Collectors.toList())))
-				.entrySet().stream().filter(e -> !e.getValue().isEmpty())
-				.forEach(e -> {
-					System.out.println(e.getKey());
-					e.getValue().forEach(p -> System.out.println(" >\t" + p));
-				});
-	}
 
-	// US21 Correct gender for role
-	// Husband in family should be male and wife in family should be female
-	public void printIncorrectGenderRoles() {
-		printHeader("Printing Incorrect Gender Roles");
-		tree.getPeople()
-				.stream()
-				.filter(p -> !p
-						.getFams()
-						.stream()
-						.filter(f -> (p.getSex().equalsIgnoreCase("M") && f
-								.getWife().getId().equals(p.getId())) ? true
-								: (p.getSex().equalsIgnoreCase("F") && f
-										.getHusband().getId().equals(p.getId())))
-						.collect(Collectors.toList()).isEmpty())
-				.forEach(System.out::println);
-	}
 
-	// US23 Unique name and birth date
-	// No more than one individual with the same name and birth date should
-	// appear in a GEDCOM file
-	public void listNonUniqueNamesAndBirthdays() {
-		printHeader("Listing People with Non-Unique Names and Birthdays");
-		tree.getPeople()
-				.stream()
-				.collect(
-						Collectors.toMap(
-								p -> p.getName()
-										.concat(p.getBirth().toString()),
-								v -> new ArrayList(Arrays.asList(v)),
-								(v1, v2) -> v1.addAll(v2) ? v1 : v1))
-				.entrySet().stream().filter(e -> e.getValue().size() > 1)
-				.forEach(e -> System.out.println(e.getValue()));
-	}
+    //Sprint 04 //US 04
+    public void marrdtbefdivdt() { // marriage  should occur before divorce
+        printHeader(" Sprint 4: US 04");
+        printHeader("Marriage Date is after divorce date");
+        for (Person p : tree.getPeople()) { //beginning of outer for loop
+            for (Family f : p.getFams()) { //beginning of inner for loop
+                if (f.getMarr() != null && f.getDiv() != null) { // beginning of outer if stmt
+                    if (f.getMarr().isAfter(f.getDiv())) { //beginning of inner if stmt
 
-	// US29 List deceased
-	// List all deceased individuals in a GEDCOM file
-	public void listDeceased() {
-		printHeader("Printing Deceased");
-		tree.getPeople().stream().filter(p -> p.getDeath() != null)
-				.forEach(System.out::println);
-	}
+                        System.out.println(" " + p.getName() + " has  marriage date: " + f.getMarr() + "  and divroce date: " + f.getDiv());
 
-	// US25 Unique first names in families
-	// No more than one child with the same name and birth date should appear in
-	// a family
-	public void listNonUniqueNamesInFamily() {
-		printHeader("Printing Non-Unique First Names and Birth Dates In Each Family");
-		tree.getFamilies()
-				.stream()
-				.collect(
-						Collectors.toMap(
-								f -> f,
-								f -> f.getMembers()
-										.stream()
-										.collect(
-												Collectors.toMap(
-														p -> p.getName().split(
-																" ", 2)[0]
-																.concat(p
-																		.getBirth()
-																		.toString()),
-														v -> new ArrayList(
-																Arrays.asList(v)),
-														(v1, v2) -> v1
-																.addAll(v2) ? v1
-																: v1))
-										.entrySet().stream()
-										.filter(e -> e.getValue().size() > 1)
-										.map(e -> e.getValue())
-										.collect(Collectors.toList())))
-				.entrySet().stream().filter(e -> !e.getValue().isEmpty())
-				.forEach(e -> {
-					System.out.println(e.getKey());
-					e.getValue().forEach(p -> System.out.println(" >\t" + p));
-				});
-	}
 
-	// US31 List living single
-	// List all living people over 30 who have never been married in a GEDCOM
-	// file
-	public void listLivingSingles() {
-		printHeader("Listing Living Singles");
-		tree.getPeople()
-				.stream()
-				.filter(p -> (p.getFams().size() == 0)
-						&& AgeUtils.getAge(p.getBirth()) > 30)
-				.forEach(System.out::println);
-	}
+                    } //end of outer if stmt
 
-	// US32 List multiple births
-	// List all multiple births in a GEDCOM file
-	public void listMultipleBirths() {
-		printHeader("Listing People with the Same Birthdays");
-		tree.getPeople()
-				.stream()
-				.collect(
-						Collectors.toMap(p -> p.getBirth(), v -> new ArrayList(
-								Arrays.asList(v)),
-								(v1, v2) -> v1.addAll(v2) ? v1 : v1))
-				.entrySet().stream().filter(e -> e.getValue().size() > 1)
-				.forEach(e -> System.out.println(e.getValue()));
-	}
+                } // end of outer if stmt
 
-	public void printPeople() {
-		printHeader("Printing People");
-		tree.getPeople().stream()
-				.sorted((p1, p2) -> p1.getId().compareTo(p2.getId()))
-				.forEach(System.out::println);
-	}
+            } // end of inner for loop
+        }
 
-	public void printFamilies() {
-		printHeader("Printing Families");
-		tree.getFamilies().stream()
-				.sorted((f1, f2) -> f1.getId().compareTo(f2.getId()))
-				.forEach(System.out::println);
-	}
+    } //end of US 04
 
-	public void printFamiliesWithChildren() {
-		printHeader("Printing Families with Children");
-		tree.getFamilies().stream()
-				.sorted((f1, f2) -> f1.getId().compareTo(f2.getId()))
-				.forEach(f -> {
-					System.out.println(f);
-					f.getChild().forEach(c -> System.out.println(" >\t" + c));
-				});
-	}
+    //Sprint 4:US 08.1
+    //Sprint 04:US 08.1//Children born before marriage date of parents
+    public void chdbdafptmardate() {
+        printHeader("Sprint 4: US:08.01");
+        printHeader("Children born before marriage date of parents");
+        for (Person p : tree.getPeople()) {
+            for (Family f : p.getFamc()) {
+                if (f.getHusband() != null && f.getWife() != null && f.getMarr() != null) {
+                    if (f.getMarr().isAfter(p.getBirth())) {
+                        System.out.println(p);
+                    }
+                }
+            }
 
-	private void printHeader(String h) {
-		System.out.printf("\n------------\n%s\n\n", h);
-	}
+        }
+    }
 
-	/**
-	 * Sprint1: US10: Marriage after 14 (Marriage should be at least 14 years
-	 * after birth of both spouses)
-	 */
-	public void listMarriageNotAfter14() {
-		printHeader("US10: Printing Marriage not at least 14 years after birth");
-		tree.getFamilies()
-				.stream()
-				.filter(f -> AgeUtils.getTimeGap(0, f.getHusband().getBirth(),
-						f.getMarr()) < 14
-						|| AgeUtils.getTimeGap(0, f.getWife().getBirth(),
-								f.getMarr()) < 14).forEach(System.out::println);
-	}
+    //Sprint 04:US 08.2 //Children born after divorce date of parents
+    public void chdbdbfptdivdate() {
+        printHeader("Sprint 4: US:08.02");
+        printHeader("Children born after divorce date of parents");
+        for (Person p : tree.getPeople()) {
+            for (Family f : p.getFamc()) {
+                if (f.getHusband() != null && f.getWife() != null && f.getDiv() != null) {
+                    if (f.getDiv().isBefore(p.getBirth())) {
+                        System.out.println(p);
+                    }
+                }
+            }
 
-	/**
-	 * Sprint1: US15: Fewer than 15 siblings (There should be fewer than 15
-	 * siblings in a family)
-	 */
-	public void listFamilyNotFewerThan15Siblings() {
-		printHeader("US15: Printing Families have more than 15 Siblings");
-		tree.getFamilies().stream().filter(f -> f.getChild().size() >= 15)
-				.forEach(System.out::println);
-	}
+        }
+    }
 
-	/**
-	 * US09 Birth before death of parents
-	 */
-	public void listBirthAfterParentsDeath() {
-		printHeader("Printing the People born after death of parents");
-		tree.getFamilies()
-				.forEach(
-						f -> f.getChild()
-								.stream()
-								.filter(c -> (f.getHusband().getDeath() != null && AgeUtils
-										.getTimeGap(1, c.getBirth(), f
-												.getHusband().getDeath()) > 9)
-										|| (f.getWife().getDeath() != null && AgeUtils
-												.getTimeGap(1, c.getBirth(), f
-														.getWife().getDeath()) > 0))
-								.forEach(System.out::println));
 
-	}
+    // US28 Order siblings by age
+    // List siblings in families by age
+    public void listSiblingsOrdedByAge() {
+        printHeader("Ordering Siblings by Age");
+        tree.getFamilies()
+                .stream()
+                .collect(
+                        Collectors.toMap(
+                                f -> f,
+                                f -> f.getChild()
+                                        .stream()
+                                        .sorted((p1, p2) -> p1.getBirth()
+                                                .compareTo(p2.getBirth()))
+                                        .collect(Collectors.toList())))
+                .entrySet().stream().filter(e -> !e.getValue().isEmpty())
+                .forEach(e -> {
+                    System.out.println(e.getKey());
+                    e.getValue().forEach(p -> System.out.println(" >\t" + p));
+                });
+    }
 
-	/**
-	 * US33 PArents are death and less than 18 years old
-	 */
-	public void ListOrphans() {
-		printHeader("Printing the orphans");
-		for (Person p : tree.getPeople()) {
-			if (AgeUtils.getAge(p.getBirth()) < 18) {
-				for (Family f : p.getFamc()) {
-					if ((f.getHusband().getDeath() != null)
-							&& (f.getWife().getDeath() != null))
-						System.out.println(p);
-				}
-			}
+    // US21 Correct gender for role
+    // Husband in family should be male and wife in family should be female
+    public void printIncorrectGenderRoles() {
+        printHeader("Printing Incorrect Gender Roles");
+        tree.getPeople()
+                .stream()
+                .filter(p -> !p
+                        .getFams()
+                        .stream()
+                        .filter(f -> (p.getSex().equalsIgnoreCase("M") && f
+                                .getWife().getId().equals(p.getId())) ? true
+                                : (p.getSex().equalsIgnoreCase("F") && f
+                                .getHusband().getId().equals(p.getId())))
+                        .collect(Collectors.toList()).isEmpty())
+                .forEach(System.out::println);
+    }
 
-		}
-	}
+    // US23 Unique name and birth date
+    // No more than one individual with the same name and birth date should
+    // appear in a GEDCOM file
+    public void listNonUniqueNamesAndBirthdays() {
+        printHeader("Listing People with Non-Unique Names and Birthdays");
+        tree.getPeople()
+                .stream()
+                .collect(
+                        Collectors.toMap(
+                                p -> p.getName()
+                                        .concat(p.getBirth().toString()),
+                                v -> new ArrayList(Arrays.asList(v)),
+                                (v1, v2) -> v1.addAll(v2) ? v1 : v1))
+                .entrySet().stream().filter(e -> e.getValue().size() > 1)
+                .forEach(e -> {
+                    System.out.println("("+((Person)e.getValue().get(0)).getBirth()+") " + ((Person)e.getValue().get(0)).getName());
+                    e.getValue().forEach(pp->System.out.println("\t"+pp));
+                });
+    }
 
-	/**
-	 * Sprint2: US12: Parents not too old (Mother should be less than 60 years
-	 * older than her children and father should be less than 80 years older
-	 * than his children)
-	 */
-	public void printParentTooOld() {
-		printHeader("US12: Printing Parents too old");
-		tree.getFamilies()
-				.stream()
-				.forEach(
-						f -> f.getChild()
-								.stream()
-								.filter(c -> AgeUtils.getTimeGap(0, f
-										.getHusband().getBirth(), c.getBirth()) >= 80
-										|| AgeUtils.getTimeGap(0, f.getWife()
-												.getBirth(), c.getBirth()) >= 60)
-								.forEach(System.out::println));
-	}
+    // US29 List deceased
+    // List all deceased individuals in a GEDCOM file
+    public void listDeceased() {
+        printHeader("Printing Deceased");
+        tree.getPeople().stream().filter(p -> p.getDeath() != null)
+                .forEach(System.out::println);
+    }
 
-	/**
-	 * Sprint2: US16: All male members of a family should have the same last
-	 * name
-	 */
-	public void printMaleLastName() {
-		printHeader("US16: Printing male members don't have the right last name");
-		tree.getFamilies()
-				.stream()
-				.forEach(
-						f -> f.getChild()
-								.stream()
-								.filter(c -> c.getSex().equals("M")
-										&& !AgeUtils.getLastName(c.getName())
-												.equals(AgeUtils
-														.getLastName(f
-																.getHusband()
-																.getName())))
-								.forEach(System.out::println));
-	}
+    // US25 Unique first names in families
+    // No more than one child with the same name and birth date should appear in
+    // a family
+    public void listNonUniqueNamesInFamily() {
+        printHeader("Printing Non-Unique First Names and Birth Dates In Each Family");
+        tree.getFamilies()
+                .stream()
+                .collect(
+                        Collectors.toMap(f -> f, f -> f.getMembers().stream()
+                                .collect(Collectors.toMap(p -> p.getName().split(" ", 2)[0].concat(p.getBirth().toString()), v -> new ArrayList(Arrays.asList(v)), (v1, v2) -> v1.addAll(v2) ? v1 : v1)).entrySet().stream()
+                                .filter(e -> e.getValue().size() > 1)
+                                .map(e -> e.getValue())
+                                .collect(Collectors.toList())))
+                .entrySet().stream().filter(e -> !e.getValue().isEmpty())
+                .forEach(e -> {
+                    System.out.println(e.getKey());
 
-	// US30 Listing living married
-	public void printLivingMarried() {
-		System.out.println();
-		System.out.println("Printing living married");
-		tree.getFamilies()
-				.stream()
-				.filter(f -> f.getDiv() == null)
-				.map(f -> new ArrayList<Person>(Arrays.asList(f.getWife(),
-						f.getHusband())))
-				.flatMap(l -> l.stream())
-				.filter(p -> p.getDeath() == null
-						&& AgeUtils.getAge(p.getBirth()) > 0)
-				.forEach(System.out::println);
+                    e.getValue().forEach(p -> {
+                        System.out.println("\t (" + ((Person)p.get(0)).getBirth() + ") " + ((Person)p.get(0)).getName());
+                        p.forEach(pp->System.out.println("\t\t"+pp));
+                    });
+                });
+    }
 
-	}
+    // US31 List living single
+    // List all living people over 30 who have never been married in a GEDCOM
+    // file
+    public void listLivingSingles() {
+        printHeader("Listing Living Singles");
+        tree.getPeople()
+                .stream()
+                .filter(p -> (p.getFams().size() == 0)
+                        && AgeUtils.getAge(p.getBirth()) > 30)
+                .forEach(System.out::println);
+    }
 
-	// US35 listing recent births
-	public void printRecentBirths() {
-		printHeader("Printing Recent Births (with last 30 days)");
-		tree.getFamilies()
-				.stream()
-				.forEach(
-						f -> f.getChild()
-								.stream()
-								.filter(c -> AgeUtils.getAgeDays(c.getBirth()) <= 30
-										&& AgeUtils.getAgeDays(c.getBirth()) > 0)
-								.forEach(System.out::println));
+    // US32 List multiple births
+    // List all multiple births in a GEDCOM file
+    public void listMultipleBirths() {
+        printHeader("Listing People with the Same Birthdays");
+        tree.getPeople()
+                .stream()
+                .collect(
+                        Collectors.toMap(p -> p.getBirth(), v -> new ArrayList(
+                                        Arrays.asList(v)),
+                                (v1, v2) -> v1.addAll(v2) ? v1 : v1))
+                .entrySet().stream().filter(e -> e.getValue().size() > 1)
+                .forEach(e -> {
+                    System.out.println(((Person) e.getValue().get(0)).getBirth());
+                    e.getValue().forEach(p -> System.out.println("\t" + p));
+                });
+    }
 
-	}
+    public void printPeople() {
+        printHeader("Printing People");
+        tree.getPeople().stream()
+                .sorted((p1, p2) -> p1.getId().compareTo(p2.getId()))
+                .forEach(System.out::println);
+    }
 
-	/**
-	 * Sprint3: US13: Birth dates of siblings should be more than 8 months apart
-	 * or less than 2 days apart.
-	 */
-	public void printSiblingSpacingInvalid() {
-		printHeader("US13: Printing birth dates of siblings not more than 8 months apart or less than 2 days apart.");
-		for (Family f : tree.getFamilies()) {
-			ArrayList a = new ArrayList();
-			for (Person p : f.getChild()) {
-				String s = p.getId() + " " + p.getName();
+    public void printFamilies() {
+        printHeader("Printing Families");
+        tree.getFamilies().stream()
+                .sorted((f1, f2) -> f1.getId().compareTo(f2.getId()))
+                .forEach(System.out::println);
+    }
 
-				for (int i = 0; i < f.getChild().size(); i++) {
-					if (!p.getId().equals(f.getChild().get(i).getId())) {
-						long day = AgeUtils.getTimeGap(2, p.getBirth(), f
-								.getChild().get(i).getBirth());
-						if (day * (1 - ((day >>> 31) << 1)) > 2) {
-							long month = AgeUtils.getTimeGap(1, p.getBirth(), f
-									.getChild().get(i).getBirth());
-							if (month * (1 - ((month >>> 31) << 1)) < 8) {
-								if (!a.contains(s))
-									a.add(s);
-							}
-						}
-					}
-				}
-			}
-			if (!a.isEmpty())
-				System.out.println(f.getId() + " " + a.toString());
-		}
-	}
+    public void printFamiliesWithChildren() {
+        printHeader("Printing Families with Children");
+        tree.getFamilies().stream()
+                .sorted((f1, f2) -> f1.getId().compareTo(f2.getId()))
+                .forEach(f -> {
+                    System.out.println(f);
+                    f.getChild().forEach(c -> System.out.println(" >\t" + c));
+                });
+    }
 
-	/**
-	 * Sprint3: US17: Parents should not marry any of their descendants.
-	 */
-	public void printMarriagesToDescendants() {
-		printHeader("US17: Printing people marry any of his descendants.");
-		for (Person p : tree.getPeople()) {
-			List<Person> arrSpouse = new ArrayList<Person>();
-			List<Person> arrChildren = new ArrayList<Person>();
-			if (p.getSex().equals("M")) {
-				for (Family f : tree.getFamilies()) {
-					if (f.getHusband().getId().equals(p.getId())) {
-						arrSpouse.add(f.getWife());
-						arrChildren.addAll(f.getChild());
-					}
-				}
-			} else if (p.getSex().equals("F")) {
-				for (Family f : tree.getFamilies()) {
-					if (f.getWife().getId().equals(p.getId())) {
-						arrSpouse.add(f.getHusband());
-						arrChildren.addAll(f.getChild());
-					}
-				}
-			}
-			for (int i = 0; i < arrSpouse.size(); i++) {
-				if (arrChildren.contains(arrSpouse.get(i))) {
-					System.out.println("Parent: " + p.toString() + " Child: "
-							+ arrSpouse.get(i).toString());
-				}
-			}
-		}
-	}
+    private void printHeader(String h) {
+        System.out.printf("\n------------\n%s\n\n", h);
+    }
 
-	public void printRecentDeaths() {
-		printHeader("Printing recent Deaths");
-		for (Person p : tree.getPeople()) {
-			if ((p.getDeath() != null)
-					&& (AgeUtils.getAgeDays(p.getDeath()) <= 30)) {
-				System.out.println(p);
-			}
-		}
+    /**
+     * Sprint1: US10: Marriage after 14 (Marriage should be at least 14 years
+     * after birth of both spouses)
+     */
+    public void listMarriageNotAfter14() {
+        printHeader("US10: Printing Marriage not at least 14 years after birth");
+        tree.getFamilies()
+                .stream()
+                .filter(f -> AgeUtils.getTimeGap(0, f.getHusband().getBirth(),
+                        f.getMarr()) < 14
+                        || AgeUtils.getTimeGap(0, f.getWife().getBirth(),
+                        f.getMarr()) < 14).forEach(System.out::println);
+    }
 
-	}
+    /**
+     * Sprint1: US15: Fewer than 15 siblings (There should be fewer than 15
+     * siblings in a family)
+     */
+    public void listFamilyNotFewerThan15Siblings() {
+        printHeader("US15: Printing Families have more than 15 Siblings");
+        tree.getFamilies().stream().filter(f -> f.getChild().size() >= 15)
+                .forEach(System.out::println);
+    }
 
-	public void printUpcommingBirthdays() {
-		printHeader("Printing Upcoming birthdays");
-		for (Person p : tree.getPeople()) {
-			if ((AgeUtils.getAge(p.getBirth()) >= 0)
-					&& (AgeUtils.getTimeGap(2, p.getBirth(), LocalDate.now()) >= -30 && AgeUtils
-							.getTimeGap(2, p.getBirth(), LocalDate.now()) <= 0)
-					&& (p.getDeath() == null)) {
-				System.out.println(p);
-			}
-		}
+    /**
+     * US09 Birth before death of parents
+     */
+    public void listBirthAfterParentsDeath() {
+        printHeader("Printing the People born after death of parents");
+        tree.getFamilies()
+                .forEach(
+                        f -> f.getChild()
+                                .stream()
+                                .filter(c -> (f.getHusband().getDeath() != null && AgeUtils
+                                        .getTimeGap(1, c.getBirth(), f
+                                                .getHusband().getDeath()) > 9)
+                                        || (f.getWife().getDeath() != null && AgeUtils
+                                        .getTimeGap(1, c.getBirth(), f
+                                                .getWife().getDeath()) > 0))
+                                .forEach(System.out::println));
 
-	}
+    }
 
-	/**
-	 * Sprint4: US14: No more than five siblings should be born at the same
-	 * time.
-	 */
-	public void printMulBirthMoreThanFive() {
-		printHeader("Printing mutiple birth more than five.");
-		for (Family f : tree.getFamilies()) {
-			ArrayList already = new ArrayList();
-			for (Person p : f.getChild()) {
-				if (!already.contains(p.getId())) {
-					ArrayList sidlings = new ArrayList();
-					String s = p.getId() + " " + p.getName();
-					for (int i = 0; i < f.getChild().size(); i++) {
-						s = f.getChild().get(i).getId() + " "
-								+ f.getChild().get(i).getName();
-						long day = AgeUtils.getTimeGap(2, p.getBirth(), f
-								.getChild().get(i).getBirth());
-						long month = AgeUtils.getTimeGap(1, p.getBirth(), f
-								.getChild().get(i).getBirth());
-						if ((day * (1 - ((day >>> 31) << 1)) < 2) && month == 0) {
-							if (!sidlings.contains(s)) {
-								already.add(f.getChild().get(i).getId());
-								sidlings.add(s);
-							}
-						}
-					}
+    /**
+     * US33 PArents are death and less than 18 years old
+     */
+    public void ListOrphans() {
+        printHeader("Printing the orphans");
+        for (Person p : tree.getPeople()) {
+            if (AgeUtils.getAge(p.getBirth()) < 18) {
+                for (Family f : p.getFamc()) {
+                    if ((f.getHusband().getDeath() != null)
+                            && (f.getWife().getDeath() != null))
+                        System.out.println(p);
+                }
+            }
 
-					if (!sidlings.isEmpty())
-						if (sidlings.size() > 5)
-							System.out.println(f.getId() + " "
-									+ sidlings.toString());
-				}
-			}
-		}
-	}
+        }
+    }
 
-	/**
-	 * Sprint4: US18: Siblings should not marry one another.
-	 */
-	public void printSiblingsMarriage() {
-		printHeader("Printing marriage with sidlings.");
-		for (Person p : tree.getPeople()) {
-			if (p.getId().equals("@I27@")) {
-				Iterator<Family> Famc = p.getFamc().iterator();
-				Iterator<Family> Fams = p.getFams().iterator();
-				if (p.getSex().equals("F")) {
-					while (Fams.hasNext()) {
-						Family fs = Fams.next();
-						while (Famc.hasNext()) {
-							Family fc = Famc.next();
-							if (fc.getChild().contains(fs.getHusband()))
-								System.out.println(p.toString()
-										+ " marriage with her brother "
-										+ fs.getHusband().toString()
-										+ " from family " + fc.getId());
-						}
-					}
-				} else if (p.getSex().equals("M")) {
-					while (Fams.hasNext()) {
-						Family fs = Fams.next();
-						while (Famc.hasNext()) {
-							Family fc = Famc.next();
-							if (fc.getChild().contains(fs.getWife()))
-								System.out.println(p.toString()
-										+ " marriage with his sister "
-										+ fs.getWife().toString()
-										+ " from family " + fc.getId());
-						}
-					}
-				}
-			}
-		}
-	}
+    /**
+     * Sprint2: US12: Parents not too old (Mother should be less than 60 years
+     * older than her children and father should be less than 80 years older
+     * than his children)
+     */
+    public void printParentTooOld() {
+        printHeader("US12: Printing Parents too old");
+        tree.getFamilies()
+                .stream()
+                .forEach(
+                        f -> f.getChild()
+                                .stream()
+                                .filter(c -> AgeUtils.getTimeGap(0, f
+                                        .getHusband().getBirth(), c.getBirth()) >= 80
+                                        || AgeUtils.getTimeGap(0, f.getWife()
+                                        .getBirth(), c.getBirth()) >= 60)
+                                .forEach(System.out::println));
+    }
+
+    /**
+     * Sprint2: US16: All male members of a family should have the same last
+     * name
+     */
+    public void printMaleLastName() {
+        printHeader("US16: Printing male members don't have the right last name");
+        tree.getFamilies()
+                .stream()
+                .forEach(
+                        f -> f.getChild()
+                                .stream()
+                                .filter(c -> c.getSex().equals("M")
+                                        && !AgeUtils.getLastName(c.getName())
+                                        .equals(AgeUtils
+                                                .getLastName(f
+                                                        .getHusband()
+                                                        .getName())))
+                                .forEach(System.out::println));
+    }
+
+    // US30 Listing living married
+    public void printLivingMarried() {
+        System.out.println();
+        System.out.println("Printing living married");
+        tree.getFamilies()
+                .stream()
+                .filter(f -> f.getDiv() == null)
+                .map(f -> new ArrayList<Person>(Arrays.asList(f.getWife(),
+                        f.getHusband())))
+                .flatMap(l -> l.stream())
+                .filter(p -> p.getDeath() == null
+                        && AgeUtils.getAge(p.getBirth()) > 0)
+                .forEach(System.out::println);
+
+    }
+
+    // US35 listing recent births
+    public void printRecentBirths() {
+        printHeader("Printing Recent Births (with last 30 days)");
+        tree.getFamilies()
+                .stream()
+                .forEach(
+                        f -> f.getChild()
+                                .stream()
+                                .filter(c -> AgeUtils.getAgeDays(c.getBirth()) <= 30
+                                        && AgeUtils.getAgeDays(c.getBirth()) > 0)
+                                .forEach(System.out::println));
+
+    }
+
+    /**
+     * Sprint3: US13: Birth dates of siblings should be more than 8 months apart
+     * or less than 2 days apart.
+     */
+    public void printSiblingSpacingInvalid() {
+        printHeader("US13: Printing birth dates of siblings not more than 8 months apart or less than 2 days apart.");
+        for (Family f : tree.getFamilies()) {
+            ArrayList a = new ArrayList();
+            for (Person p : f.getChild()) {
+                String s = p.getId() + " " + p.getName();
+
+                for (int i = 0; i < f.getChild().size(); i++) {
+                    if (!p.getId().equals(f.getChild().get(i).getId())) {
+                        long day = AgeUtils.getTimeGap(2, p.getBirth(), f
+                                .getChild().get(i).getBirth());
+                        if (day * (1 - ((day >>> 31) << 1)) > 2) {
+                            long month = AgeUtils.getTimeGap(1, p.getBirth(), f
+                                    .getChild().get(i).getBirth());
+                            if (month * (1 - ((month >>> 31) << 1)) < 8) {
+                                if (!a.contains(s))
+                                    a.add(s);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!a.isEmpty())
+                System.out.println(f.getId() + " " + a.toString());
+        }
+    }
+
+    /**
+     * Sprint3: US17: Parents should not marry any of their descendants.
+     */
+    public void printMarriagesToDescendants() {
+        printHeader("US17: Printing people marry any of his descendants.");
+        for (Person p : tree.getPeople()) {
+            List<Person> arrSpouse = new ArrayList<Person>();
+            List<Person> arrChildren = new ArrayList<Person>();
+            if (p.getSex().equals("M")) {
+                for (Family f : tree.getFamilies()) {
+                    if (f.getHusband().getId().equals(p.getId())) {
+                        arrSpouse.add(f.getWife());
+                        arrChildren.addAll(f.getChild());
+                    }
+                }
+            } else if (p.getSex().equals("F")) {
+                for (Family f : tree.getFamilies()) {
+                    if (f.getWife().getId().equals(p.getId())) {
+                        arrSpouse.add(f.getHusband());
+                        arrChildren.addAll(f.getChild());
+                    }
+                }
+            }
+            for (int i = 0; i < arrSpouse.size(); i++) {
+                if (arrChildren.contains(arrSpouse.get(i))) {
+                    System.out.println("Parent: " + p.toString() + " Child: "
+                            + arrSpouse.get(i).toString());
+                }
+            }
+        }
+    }
+
+    public void printRecentDeaths() {
+        printHeader("Printing recent Deaths");
+        for (Person p : tree.getPeople()) {
+            if ((p.getDeath() != null)
+                    && (AgeUtils.getAgeDays(p.getDeath()) <= 30)) {
+                System.out.println(p);
+            }
+        }
+
+    }
+
+    public void printUpcommingBirthdays() {
+        printHeader("Printing Upcoming birthdays");
+        for (Person p : tree.getPeople()) {
+            if ((AgeUtils.getAge(p.getBirth()) >= 0)
+                    && (AgeUtils.getTimeGap(2, p.getBirth(), LocalDate.now()) >= -30 && AgeUtils
+                    .getTimeGap(2, p.getBirth(), LocalDate.now()) <= 0)
+                    && (p.getDeath() == null)) {
+                System.out.println(p);
+            }
+        }
+
+    }
+
+    /**
+     * Sprint4: US14: No more than five siblings should be born at the same
+     * time.
+     */
+    public void printMulBirthMoreThanFive() {
+        printHeader("Printing mutiple birth more than five.");
+        for (Family f : tree.getFamilies()) {
+            ArrayList already = new ArrayList();
+            for (Person p : f.getChild()) {
+                if (!already.contains(p.getId())) {
+                    ArrayList sidlings = new ArrayList();
+                    String s = p.getId().toString();
+                    for (int i = 0; i < f.getChild().size(); i++) {
+                        s = f.getChild().get(i).toString();
+                        long day = AgeUtils.getTimeGap(2, p.getBirth(), f
+                                .getChild().get(i).getBirth());
+                        long month = AgeUtils.getTimeGap(1, p.getBirth(), f
+                                .getChild().get(i).getBirth());
+                        if ((day * (1 - ((day >>> 31) << 1)) < 2) && month == 0) {
+                            if (!sidlings.contains(s)) {
+                                already.add(f.getChild().get(i).getId());
+                                sidlings.add(s);
+                            }
+                        }
+                    }
+
+                    if (!sidlings.isEmpty())
+                        if (sidlings.size() > 5) {
+                            System.out.println(f.getId());
+                            sidlings.forEach(si -> System.out.println("\t" + si));
+                        }
+                }
+            }
+        }
+    }
+
+    /**
+     * Sprint4: US18: Siblings should not marry one another.
+     */
+    public void printSiblingsMarriage() {
+        printHeader("Printing marriage with sidlings.");
+        for (Person p : tree.getPeople()) {
+            if (p.getId().equals("@I27@")) {
+                Iterator<Family> Famc = p.getFamc().iterator();
+                Iterator<Family> Fams = p.getFams().iterator();
+                if (p.getSex().equals("F")) {
+                    while (Fams.hasNext()) {
+                        Family fs = Fams.next();
+                        while (Famc.hasNext()) {
+                            Family fc = Famc.next();
+                            if (fc.getChild().contains(fs.getHusband()))
+                                System.out.println(p.toString()
+                                        + " marriage with her brother "
+                                        + fs.getHusband().toString()
+                                        + " from family " + fc.getId());
+                        }
+                    }
+                } else if (p.getSex().equals("M")) {
+                    while (Fams.hasNext()) {
+                        Family fs = Fams.next();
+                        while (Famc.hasNext()) {
+                            Family fc = Famc.next();
+                            if (fc.getChild().contains(fs.getWife()))
+                                System.out.println(p.toString()
+                                        + " marriage with his sister "
+                                        + fs.getWife().toString()
+                                        + " from family " + fc.getId());
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

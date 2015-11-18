@@ -80,6 +80,6 @@ public class Person {
     //Include person's current age when listing individuals
     @Override
     public String toString() {
-        return "["+id+"] ("+ birth +") "+name+" ("+ AgeUtils.getAge(birth)+")";
+        return "["+id+"] ("+ birth +") "+name+" (Age:"+ AgeUtils.getAge(birth)+")";
     }
 }

@@ -61,5 +61,6 @@ public class Main {
 		// treeUtils.listMultipleBirths();
 		treeUtils.printMulBirthMoreThanFive(); // US 14
 		treeUtils.printSiblingsMarriage(); // US 18
+		 treeUtils.marrdtbefdivdt();// US 04
 	}
 }

@@ -225,7 +225,30 @@ public class TreeUtils {
 		} // end of for stmt
 
 	} // end of US O7.2
-
+//Sprint 04 //US 04
+  public void marrdtbefdivdt(){ // marriage  should occur before divorce
+	  printHeader(" Sprint 4: US 04");
+  	printHeader("Marriage Date is after divorce date");
+  	 for( Person p : tree.getPeople()) 
+  	 { //beginning of outer for loop
+  	 for(Family f:p.getFams())
+  	 { //beginning of inner for loop
+  	   if(f.getMarr()!=null && f.getDiv()!=null)
+  	   { // beginning of outer if stmt
+  		   if(f.getMarr().isAfter(f.getDiv()))
+  	     { //beginning of inner if stmt
+  	        
+  	        System.out.println(" "  + p.getName()+ " has  marriage date: " + f.getMarr() + "  and divroce date: " + f.getDiv() );
+  	        
+  	     
+  	     } //end of outer if stmt
+  	   
+  	   } // end of outer if stmt
+  	   
+  	 } // end of inner for loop
+  	 }
+	  
+  } //end of US 04
 	// US28 Order siblings by age
 	// List siblings in families by age
 	public void listSiblingsOrdedByAge() {

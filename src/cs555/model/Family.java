@@ -1,8 +1,11 @@
 package cs555.model;
 
+import cs555.util.AgeUtils;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,13 @@ public class Family {
     }
 
     public void setMarr(String marr) {
-        this.marr = LocalDate.parse(marr, dateTimeFormatter);
+        if (AgeUtils.isBadDate(marr))
+            System.out.println(marr + " is a bad date!");
+        try {
+            this.marr = LocalDate.parse(marr, dateTimeFormatter);
+        } catch (DateTimeParseException e){
+            System.out.println(marr + " is a bad date!");
+        }
     }
 
     public LocalDate getDiv() {
@@ -57,7 +66,13 @@ public class Family {
     }
 
     public void setDiv(String div) {
-        this.div = LocalDate.parse(div, dateTimeFormatter);
+        if (AgeUtils.isBadDate(div))
+            System.out.println(div + " is a bad date!");
+        try {
+            this.div = LocalDate.parse(div, dateTimeFormatter);
+        } catch (DateTimeParseException e){
+            System.out.println(div + " is a bad date!");
+        }
     }
 
     public String getId() {

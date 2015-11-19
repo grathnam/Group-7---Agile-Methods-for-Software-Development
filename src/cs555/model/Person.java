@@ -71,7 +71,13 @@ public class Person {
     }
 
     public void setDeath(String death) {
-        this.death = LocalDate.parse(death, dateTimeFormatter);
+        if (AgeUtils.isBadDate(death))
+            System.out.println(death + " is a bad date!");
+        try {
+            this.death = LocalDate.parse(death, dateTimeFormatter);
+        } catch (DateTimeParseException e){
+            System.out.println(death + " is a bad date!");
+        }
     }
 
     public void addFamc(Family family) {

@@ -1,4 +1,8 @@
 You should provide an argument for which file you want to read. Defaulting to test.ged
+30 FEB 1982 is a bad date! US42
+31 FEB 2010 is a bad date! US42
+36 FEB 1970 is a bad date! US42
+36 FEB 1970 is a bad date! US42
 
 ------------
 Printing People
@@ -13,7 +17,7 @@ Printing People
 [@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
 [@I18@] (2000-03-10) asdf /Green/ (Age:15)
 [@I19@] (2000-03-10) asdf /Green/ (Age:15)
-[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 [@I20@] (2000-03-10) asdf /Green/ (Age:15)
 [@I21@] (2000-03-10) asdf /Green/ (Age:15)
 [@I22@] (2000-03-10) asdf /Green/ (Age:15)
@@ -24,7 +28,7 @@ Printing People
 [@I27@] (2030-03-10) asd /Green/ (Age:-14)
 [@I28@] (2015-10-10) qwe /Green/ (Age:0)
 [@I2@] (1990-10-01) Jim /Green/ (Age:25)
-[@I3@] (2018-05-01) Anna /Kim/ (Age:-2)
+[@I3@] (1990-05-01) Anna /Kim/ (Age:25)
 [@I4@] (1960-12-12) Peter /Green/ (Age:54)
 [@I5@] (1958-01-02) Bonnie /Brown/ (Age:57)
 [@I6@] (1972-04-01) Debby /Wood/ (Age:43)
@@ -46,9 +50,7 @@ Printing Families
 Birth Date exceeding current date
 
 [@I27@] (2030-03-10) asd /Green/ (Age:-14)
-[@I3@] (2018-05-01) Anna /Kim/ (Age:-2)
 asd /Green/ has an invalid birthday of: 2030-03-10
-Anna /Kim/ has an invalid birthday of: 2018-05-01
 
 ------------
 Death Date exceeding current date
@@ -61,7 +63,7 @@ Divorce date exceeding current date
 ------------
 Marriage Date exceeding current date
 
- [@I27@] (2030-03-10) asd /Green/ (Age:-14) and [@I28@] (2015-10-10) qwe /Green/ (Age:0) have an invalid marriage date of: 2030-10-01
+ [@I27@] (2030-03-10) asd /Green/ (Age:-14) and [@I28@] (2015-10-10) qwe /Green/ (Age:0) have an invalid marriage date of: 2030-08-01
 
 ------------
 US 05
@@ -95,7 +97,7 @@ Ordering Siblings by Age
  >	[@I28@] (2015-10-10) qwe /Green/ (Age:0)
  >	[@I27@] (2030-03-10) asd /Green/ (Age:-14)
 [@F1@]	Jim /Green/	+	Anna /Kim/
- >	[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+ >	[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
  >	[@I8@] (1986-01-03) Child1 /Green/ (Age:29)
  >	[@I9@] (1991-01-07) Child2 /Green/ (Age:24)
  >	[@I10@] (1992-01-10) Child3 /Green/ (Age:23)
@@ -189,8 +191,8 @@ Printing Deceased
 ------------
 Sprint 2: US 02: Marraige dates that is  before the birth of a person 
 
-  Jim /Green/ has marraige date : 1989-10-01 and  Birth date:  1990-10-01
-  Anna /Kim/ has marraige date : 1989-10-01 and  Birth date:  2018-05-01
+  Jim /Green/ has marraige date : 1989-12-01 and  Birth date:  1990-10-01
+  Anna /Kim/ has marraige date : 1989-12-01 and  Birth date:  1990-05-01
 
 ------------
 Sprint 2: US 06: Divorce date that is after the death date of a person 
@@ -209,6 +211,9 @@ US16: Printing male members don't have the right last name
 [@I26@] (2000-03-10) asdf /LastName/ (Age:15)
 
 Printing living married
+[@I3@] (1990-05-01) Anna /Kim/ (Age:25)
+[@I2@] (1990-10-01) Jim /Green/ (Age:25)
+[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 [@I2@] (1990-10-01) Jim /Green/ (Age:25)
 
 ------------
@@ -220,7 +225,7 @@ Listing Living Singles
 
 [@I15@] (1950-03-10) DeadParent1 /Green/ (Age:65)
 [@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
-[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 [@I7@] (1976-11-19) Grace /Green/ (Age:38)
 [@I16@] (1943-03-10) DeadParent2 /Green/ (Age:72)
 
@@ -260,7 +265,7 @@ Death date less than 150 years after birth for dead people
 
  Peter /Green/ has  birth date: 1960-12-12 and     Death date:2011-11-18
  DeadParent1 /Green/ has  birth date: 1950-03-10 and     Death date:1995-10-10
- Bonnie /Brown/ has  birth date: 1958-01-02 and     Death date:2010-08-01
+ Bonnie /Brown/ has  birth date: 1958-01-02 and     Death date:2010-02-28
  DeadParent2 /Green/ has  birth date: 1943-03-10 and     Death date:1995-10-10
 
 ------------
@@ -279,7 +284,8 @@ Current Date is less than 150 years after birth for all living people
  asdf /LastName/ has  birth date: 2000-03-10
  Orpghan /Green/ has  birth date: 1974-03-10
  asdf /Green/ has  birth date: 2000-03-10
- Emmy /Green/ has  birth date: 1982-01-10
+ Emmy /Green/ has  birth date: 1982-02-28
+ Anna /Kim/ has  birth date: 1990-05-01
  Grace /Green/ has  birth date: 1976-11-19
  Child2 /Green/ has  birth date: 1991-01-07
  asdf /Green/ has  birth date: 2000-03-10
@@ -299,7 +305,7 @@ US13: Printing birth dates of siblings not more than 8 months apart or less than
 ------------
 US17: Printing people marry any of his descendants.
 
-Parent: [@I2@] (1990-10-01) Jim /Green/ (Age:25) Child: [@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+Parent: [@I2@] (1990-10-01) Jim /Green/ (Age:25) Child: [@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 
 ------------
 Printing recent Deaths
@@ -343,7 +349,7 @@ Printing People
 [@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
 [@I18@] (2000-03-10) asdf /Green/ (Age:15)
 [@I19@] (2000-03-10) asdf /Green/ (Age:15)
-[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 [@I20@] (2000-03-10) asdf /Green/ (Age:15)
 [@I21@] (2000-03-10) asdf /Green/ (Age:15)
 [@I22@] (2000-03-10) asdf /Green/ (Age:15)
@@ -354,7 +360,7 @@ Printing People
 [@I27@] (2030-03-10) asd /Green/ (Age:-14)
 [@I28@] (2015-10-10) qwe /Green/ (Age:0)
 [@I2@] (1990-10-01) Jim /Green/ (Age:25)
-[@I3@] (2018-05-01) Anna /Kim/ (Age:-2)
+[@I3@] (1990-05-01) Anna /Kim/ (Age:25)
 [@I4@] (1960-12-12) Peter /Green/ (Age:54)
 [@I5@] (1958-01-02) Bonnie /Brown/ (Age:57)
 [@I6@] (1972-04-01) Debby /Wood/ (Age:43)
@@ -401,7 +407,7 @@ Children born before marriage date of parents
 [@I8@] (1986-01-03) Child1 /Green/ (Age:29)
 [@I15@] (1950-03-10) DeadParent1 /Green/ (Age:65)
 [@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
-[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+[@I1@] (1982-02-28) Emmy /Green/ (Age:33)
 [@I7@] (1976-11-19) Grace /Green/ (Age:38)
 [@I16@] (1943-03-10) DeadParent2 /Green/ (Age:72)
 
@@ -426,3 +432,8 @@ Children born after divorce date of parents
 [@I28@] (2015-10-10) qwe /Green/ (Age:0)
 [@I18@] (2000-03-10) asdf /Green/ (Age:15)
 [@I20@] (2000-03-10) asdf /Green/ (Age:15)
+
+------------
+US39 : Printing the couples with marriage anivarsaries in next 30 days
+
+[@F1@]	Jim /Green/	+	Anna /Kim/

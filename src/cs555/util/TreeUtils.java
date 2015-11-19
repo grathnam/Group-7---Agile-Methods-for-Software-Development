@@ -711,4 +711,15 @@ public class TreeUtils {
             }
         }
     }
+//US39 Listing all the upcomming aniversaries
+    
+    public void printUpcommingAniversaries()
+    {
+    	 printHeader("US39 : Printing the couples with marriage anivarsaries in next 30 days");
+         tree.getFamilies()
+                 .stream()
+                 .filter(f -> AgeUtils.getTimeGap(2,f.getMarr(),LocalDate.now()) <=30
+                         && f.getDiv()==null && f.getHusband().getDeath()== null && f.getWife().getDeath()==null && AgeUtils.getAge(f.getHusband().getBirth())>0 && AgeUtils.getAge(f.getWife().getBirth())>0).forEach(System.out::println);
+
+    }
 }

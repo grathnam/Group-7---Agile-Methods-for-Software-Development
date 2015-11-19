@@ -58,11 +58,11 @@ public class Person {
 
     public void setBirth(String birth) {
         if (AgeUtils.isBadDate(birth))
-            System.out.println(birth + " is a bad date!");
+            System.out.println(birth + " is a bad date! US42");
         try {
             this.birth = LocalDate.parse(birth, dateTimeFormatter);
         } catch (DateTimeParseException e){
-            System.out.println(birth + " is a bad date!");
+            System.out.println(birth + " is a bad date! US42");
         }
     }
 
@@ -72,11 +72,11 @@ public class Person {
 
     public void setDeath(String death) {
         if (AgeUtils.isBadDate(death))
-            System.out.println(death + " is a bad date!");
+            System.out.println(death + " is a bad date! US42");
         try {
             this.death = LocalDate.parse(death, dateTimeFormatter);
         } catch (DateTimeParseException e){
-            System.out.println(death + " is a bad date!");
+            System.out.println(death + " is a bad date! US42");
         }
     }
 

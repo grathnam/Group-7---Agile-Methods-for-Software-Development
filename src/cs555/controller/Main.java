@@ -65,5 +65,6 @@ public class Main {
         treeUtils.marrdtbefdivdt(); //US 04
         treeUtils.chdbdafptmardate(); //US 08.1
         treeUtils.chdbdbfptdivdate();//US 08.2
+        treeUtils.printUpcommingAniversaries();//US39
     }
 }

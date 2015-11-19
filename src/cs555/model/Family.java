@@ -53,11 +53,11 @@ public class Family {
 
     public void setMarr(String marr) {
         if (AgeUtils.isBadDate(marr))
-            System.out.println(marr + " is a bad date!");
+            System.out.println(marr + " is a bad date! US42");
         try {
             this.marr = LocalDate.parse(marr, dateTimeFormatter);
         } catch (DateTimeParseException e){
-            System.out.println(marr + " is a bad date!");
+            System.out.println(marr + " is a bad date! US42");
         }
     }
 
@@ -67,11 +67,11 @@ public class Family {
 
     public void setDiv(String div) {
         if (AgeUtils.isBadDate(div))
-            System.out.println(div + " is a bad date!");
+            System.out.println(div + " is a bad date! US42");
         try {
             this.div = LocalDate.parse(div, dateTimeFormatter);
         } catch (DateTimeParseException e){
-            System.out.println(div + " is a bad date!");
+            System.out.println(div + " is a bad date! US42");
         }
     }
 

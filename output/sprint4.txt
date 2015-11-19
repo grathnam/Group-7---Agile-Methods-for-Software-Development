@@ -1,4 +1,3 @@
-"C:\Program Files\Java\jdk1.8.0_60\bin\java" -Didea.launcher.port=7535 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 15.0\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\brian\temp\Group-7---Agile-Methods-for-Software-Development\bin;C:\Program Files\Java\jdk1.8.0_60\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 15.0\lib\idea_rt.jar" com.intellij.rt.execution.application.AppMain cs555.controller.Main
 You should provide an argument for which file you want to read. Defaulting to test.ged
 
 ------------
@@ -76,17 +75,6 @@ Marraige Date exceeding death date
 ------------
 Ordering Siblings by Age
 
-[@F4@]	DeadParent1 /Green/	+	DeadParent2 /Green/
- >	[@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
-[@F1@]	Jim /Green/	+	Anna /Kim/
- >	[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
- >	[@I8@] (1986-01-03) Child1 /Green/ (Age:29)
- >	[@I9@] (1991-01-07) Child2 /Green/ (Age:24)
- >	[@I10@] (1992-01-10) Child3 /Green/ (Age:23)
-[@F2@]	Peter /Green/	+	Bonnie /Brown/
- >	[@I2@] (1990-10-01) Jim /Green/ (Age:25)
- >	[@I11@] (1994-02-10) SameBDay /Green/ (Age:21)
- >	[@I12@] (1994-02-10) SameBDay2 /Green/ (Age:21)
 [@F5@]	Jim /Green/	+	Emmy /Green/
  >	[@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
 [@F3@]	Peter /Green/	+	Debby /Wood/
@@ -106,6 +94,17 @@ Ordering Siblings by Age
  >	[@I26@] (2000-03-10) asdf /LastName/ (Age:15)
  >	[@I28@] (2015-10-10) qwe /Green/ (Age:0)
  >	[@I27@] (2030-03-10) asd /Green/ (Age:-14)
+[@F1@]	Jim /Green/	+	Anna /Kim/
+ >	[@I1@] (1982-01-10) Emmy /Green/ (Age:33)
+ >	[@I8@] (1986-01-03) Child1 /Green/ (Age:29)
+ >	[@I9@] (1991-01-07) Child2 /Green/ (Age:24)
+ >	[@I10@] (1992-01-10) Child3 /Green/ (Age:23)
+[@F4@]	DeadParent1 /Green/	+	DeadParent2 /Green/
+ >	[@I17@] (1974-03-10) Orpghan /Green/ (Age:41)
+[@F2@]	Peter /Green/	+	Bonnie /Brown/
+ >	[@I2@] (1990-10-01) Jim /Green/ (Age:25)
+ >	[@I11@] (1994-02-10) SameBDay /Green/ (Age:21)
+ >	[@I12@] (1994-02-10) SameBDay2 /Green/ (Age:21)
 
 ------------
 Printing Incorrect Gender Roles
@@ -188,13 +187,13 @@ Printing Deceased
 [@I16@] (1943-03-10) DeadParent2 /Green/ (Age:72)
 
 ------------
-Sprint 2: US 02: Marraige dates that is  before the birth of a person
+Sprint 2: US 02: Marraige dates that is  before the birth of a person 
 
   Jim /Green/ has marraige date : 1989-10-01 and  Birth date:  1990-10-01
   Anna /Kim/ has marraige date : 1989-10-01 and  Birth date:  2018-05-01
 
 ------------
-Sprint 2: US 06: Divorce date that is after the death date of a person
+Sprint 2: US 06: Divorce date that is after the death date of a person 
 
  Debby /Wood/ has  divorce date: 1998-01-05  and death date: 1963-07-06
 
@@ -364,7 +363,7 @@ Printing People
 [@I9@] (1991-01-07) Child2 /Green/ (Age:24)
 
 ------------
-Printing mutiple birth more than five.
+print4: US14: Printing mutiple birth more than five.
 
 @F3@
 	[@I18@] (2000-03-10) asdf /Green/ (Age:15)
@@ -378,7 +377,7 @@ Printing mutiple birth more than five.
 	[@I26@] (2000-03-10) asdf /LastName/ (Age:15)
 
 ------------
-Printing marriage with sidlings.
+Sprint4: US18: Printing marriage with sidlings.
 
 [@I27@] (2030-03-10) asd /Green/ (Age:-14) marriage with his sister [@I28@] (2015-10-10) qwe /Green/ (Age:0) from family @F3@
 
@@ -427,5 +426,3 @@ Children born after divorce date of parents
 [@I28@] (2015-10-10) qwe /Green/ (Age:0)
 [@I18@] (2000-03-10) asdf /Green/ (Age:15)
 [@I20@] (2000-03-10) asdf /Green/ (Age:15)
-
-Process finished with exit code 0

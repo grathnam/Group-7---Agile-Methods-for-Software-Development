@@ -643,7 +643,7 @@ public class TreeUtils {
      * time.
      */
     public void printMulBirthMoreThanFive() {
-        printHeader("Printing mutiple birth more than five.");
+        printHeader("print4: US14: Printing mutiple birth more than five.");
         for (Family f : tree.getFamilies()) {
             ArrayList already = new ArrayList();
             for (Person p : f.getChild()) {
@@ -678,7 +678,7 @@ public class TreeUtils {
      * Sprint4: US18: Siblings should not marry one another.
      */
     public void printSiblingsMarriage() {
-        printHeader("Printing marriage with sidlings.");
+        printHeader("Sprint4: US18: Printing marriage with sidlings.");
         for (Person p : tree.getPeople()) {
             if (p.getId().equals("@I27@")) {
                 Iterator<Family> Famc = p.getFamc().iterator();

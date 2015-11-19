@@ -5,8 +5,8 @@ import cs555.util.AgeUtils;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.format.DateTimeParseException;
+import java.util.*;
 
 public class Person {
     private static final DateTimeFormatter dateTimeFormatter = new DateTimeFormatterBuilder().parseLenient().parseCaseInsensitive().appendPattern("dd MMM yyyy").toFormatter();
@@ -57,7 +57,13 @@ public class Person {
     }
 
     public void setBirth(String birth) {
-        this.birth = LocalDate.parse(birth, dateTimeFormatter);
+        if (AgeUtils.isBadDate(birth))
+            System.out.println(birth + " is a bad date!");
+        try {
+            this.birth = LocalDate.parse(birth, dateTimeFormatter);
+        } catch (DateTimeParseException e){
+            System.out.println(birth + " is a bad date!");
+        }
     }
 
     public LocalDate getDeath() {
